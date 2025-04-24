@@ -4,7 +4,7 @@
 <p align="justify"> Durante o processo de impressão 3D, a falta de energia pela concessionária local, mesmo que seja rápida, pode provocar um mal funcionamento temporário na impressora, resultando  na fabricação incorreta da peça 3D. Sabendo-se que o tempo de impressão pode ser muito longo, dependendo do tamanho e da complexidade da peça, evitar esse mal funcionamento é imprenscível para que não se tenha perda de tempo e de material. Com o objetivo de atender essa necessidade, desenvolvemos uma interface, entre fonte de alimentação e a entrada de energia da impressora 3D, que servirá como um powerbank para quedas rápidas de energia e também terá a função de desligamento automático após o fim do processo de impressão.</p> 
 
 ## **Objetivos Gerais:**
-<p align="justify">O objetivo geral é desenvolver um produto com determinadas funcionalidades que ajudem o usuário de
+<p align="justify">O objetivo geral é desenvolver um produto com determinadas funcionalidades que ajude o usuário de
 impressora 3D a ter mais confiabilidade e economia na fabricação de suas peças.
 
 ## **Casos de Uso**
@@ -13,7 +13,7 @@ Imagine as seguintes situações:
 
 > A rede elétrica da sua casa caiu, momentâneamente, e sua impressora estava imprimindo uma  
 > peça que demora horas para ficar pronta. Por causa dessa queda rápida, acontece uma falha
-> na sua querida impressão
+> na sua querida impressão.
 
 
 > Você está trazendo vida a uma estátua que um cliente seu pediu, mas não sabe 
@@ -22,7 +22,7 @@ Imagine as seguintes situações:
 
 > Você coloca uma peça para ser impressa e não pode estar presente durante o processo de impressão,
 > pois tem os seus compromissos. Quando a impressão acabar, não conseguirá desligar 
-> a impressora para não gastar energia durante esse tempo fora.
+> a impressora e, portanto, não conseguirá evitar o gasto de energia durante esse tempo fora.
 
 
 Se esses são alguns dos problemas que você se depara ao usar uma impressoras 3D, o nosso
