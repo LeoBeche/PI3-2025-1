@@ -147,5 +147,5 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 > Motivo: Visto que a potência de saída da fonte da impressora Ender 3 Creality é de 270W a 24V, o cabo foi calculado com base na corrente máxima suportada e colocado um fator de segurança de 2. 
 
 <p align="center">
-<img src="https://github.com/LeoBeche/PI3-2025-1/blob/main/Especifica%C3%A7%C3%B5es/Materiais/Cabo.jpg" width="100" height="100" border="10"/>
+<img src="https://github.com/LeoBeche/PI3-2025-1/blob/main/Especifica%C3%A7%C3%B5es/Materiais/Cabo.JPG" width="441" height="170" border="10"/>
 </p> 

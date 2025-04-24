@@ -1,6 +1,6 @@
-**Instituto Federal de Santa Catarina - IFSC/Florianópolis**
+﻿**Instituto Federal de Santa Catarina - IFSC/Florianópolis**
 
-**Aluna:** André Luiz Gonçalves Toldo, Greicili dos Santos Ferreira e Leonardo Gabriel Muraro Beche
+**Alunos:** André Luiz Gonçalves Toldo, Greicili dos Santos Ferreira e Leonardo Gabriel Muraro Beche
 
 **Unidade Curricular:** Projeto Integrador III
 
