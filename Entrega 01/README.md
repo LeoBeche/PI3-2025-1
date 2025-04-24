@@ -137,14 +137,15 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 <p align="justify"><b>Motivo:</b> Padrão da Ender3 Creality e de muitas impressoras 3D, suportam correntes até 60 A e fornecem conexão robusta, polaridade garantida e baixa resistência de contato, facilitando integração direta com a impressora sem adaptadores.</p>
 
-
-# Cabos de saída: cabo elétrico flexível 2.5 mm
+ <hr />
+ 
+- **Cabos de saída: cabo elétrico flexível 2.5 mm**
 
 <p align="center">
 <img src="https://github.com/LeoBeche/PI3-2025-1/blob/main/Especifica%C3%A7%C3%B5es/Materiais/Cabos.jpg" width="100" height="100" border="10"/>
 </p> 
 
-> Motivo: Visto que a potência de saída da fonte da impressora Ender 3 Creality é de 270W a 24V, o cabo foi calculado com base na corrente máxima suportada e colocado um fator de segurança de 2. 
+<p align="justify"><b>Motivo:</b> Visto que a potência de saída da fonte da impressora Ender 3 Creality é de 270W a 24V, o cabo foi calculado com base na corrente máxima suportada e colocado um fator de segurança de 2.</p>
 
 <p align="center">
 <img src="https://github.com/LeoBeche/PI3-2025-1/blob/main/Especifica%C3%A7%C3%B5es/Materiais/Cabo.JPG" width="441" height="170" border="10"/>
