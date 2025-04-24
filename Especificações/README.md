@@ -4,7 +4,7 @@ O produto consiste em funcionalidades distintas que servem para ajudar o usuário
 impressora 3D a ter mais confiabilidade e opções no processo de fazer as suas peças.
 
 
-# Casos de Uso
+# Casos de Uso:
 
 Imagine as seguintes situações
 
@@ -49,8 +49,9 @@ energético da impressão, informar ao usuário de quedas e retornos de energia.
 
 - **Envia notificação quando a energia volta.**  
 
-## Sistema
 
+
+# Sistema
 
 
 ![Sistema](DiagramaBlocos.jpg)

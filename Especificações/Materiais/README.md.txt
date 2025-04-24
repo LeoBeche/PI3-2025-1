@@ -1,2 +1,0 @@
-A seleção dos materiais com base nas especificações de funcionalidades do projeto estão listadas nesse diretório,
-a definição dos compenentes que serão utilizados estão listados e justificados em cada arquivo.
