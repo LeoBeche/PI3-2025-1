@@ -51,7 +51,7 @@ produto é para você.</p>
 ## **Sistema**
 Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 <p align="center"><b>Figura 01 - Diagrama de blocos do sistema</b></p>
-![Sistema](DiagramaBlocos.jpg)
+![DiagramaBlocos.jpg](https://github.com/LeoBeche/PI3-2025-1/blob/main/Especifica%C3%A7%C3%B5es/DiagramaBlocos.jpg?raw=true)
 
 
 ## **Seleção e justificativas na escolha do materiais:**
