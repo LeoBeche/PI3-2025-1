@@ -50,8 +50,10 @@ produto é para você.</p>
 
 ## **Sistema**
 Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
+
 <p align="center"><b>Figura 01 - Diagrama de blocos do sistema</b></p>
-![DiagramaBlocos](https://github.com/user-attachments/assets/61460bc3-33fe-4d7c-88b6-5743390a8f39)
+
+![DiagramaBlocos](https://github.com/user-attachments/assets/25bebb09-30ef-4287-b567-e93bd9186dbc)
 
 
 ## **Seleção e justificativas na escolha do materiais:**
