@@ -119,7 +119,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 <hr />
 
-- **BMS: Módulo S6 24 V 40 A para Li-íon**
+- **BMS: Módulo 6S 24 V 40 A para Li-íon**
 
 <p align="center">
 <img src="https://github.com/LeoBeche/PI3-2025-1/blob/main/Especifica%C3%A7%C3%B5es/Materiais/BMS.jpg" width="100" height="100" border="10"/>
