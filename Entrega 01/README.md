@@ -60,7 +60,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
   
 - **Microcontrolador: ESP32 com Wi-Fi**
 
-<p align="center"> ![Microcontrolador](../Especificações/Materiais/Microcontrolador.jpg) </p> 
+<p align="center"></b> ![Microcontrolador](../Especificações/Materiais/Microcontrolador.jpg) </b></p> 
 
 <p align="justify"><b>Motivo:</b> oferece dois ADCs de 12 bits para amostragem simultânea, além de comunicação sem-fio nativa (Wi-Fi/Bluetooth) para interface móvel e envio de dados em tempo real. Sua performance (dual-core, até 240 MHz) garante resposta rápida às interrupções e ao controle do sistema.</p>
 
@@ -69,7 +69,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 - **Sensor de tensão (divisor resistivo para até 25 V)**
 
-<p align="center"> ![Sensor_tensao](../Especificações/Materiais/Sensor_tensao.jpg) </p> 
+<p align="center"></b> ![Sensor_tensao](../Especificações/Materiais/Sensor_tensao.jpg) </b></p> 
 
 <p align="justify"><b>Motivo:</b> Sensor realiza a medição de tensão de até 25 V, sendo que a impressora funciona com 24V, e fornece um sinal em um intervalo seguro (0–3,3 V) para os ADCs do ESP32, permitindo leitura direta e linear da tensão de alimentação da impressora. </p>
 
@@ -77,7 +77,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 - **Sensor de corrente: ACS712 20 A**
 
-<p align="center"> ![Sensor_corrente](../Especificações/Materiais/Sensor_corrente.jpg) </p>
+<p align="center"></b> ![Sensor_corrente](../Especificações/Materiais/Sensor_corrente.jpg) </b></p>
 
 <p align="justify"><b>Motivo:</b> o ACS712 fornece isolamento galvânico e saída analógica proporcional à corrente (±20 A), compatível com o range esperado da impressora 3D. Conecta-se ao segundo ADC do ESP32, permitindo cálculo de potência instantânea sem circuitos de corrente contínua direta.</p>
 
@@ -85,7 +85,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 - **Sensor de queda de tensão: comparador (amplificador operacional)**
 
-<p align="center"> ![Sensor_queda_tensao](../Especificações/Materiais/Sensor_queda_tensao.jpg) </p>
+<p align="center"></b> ![Sensor_queda_tensao](../Especificações/Materiais/Sensor_queda_tensao.jpg) </b></p>
 
 <p align="justify"><b>Motivo:</b> um comparador baseado em amp-op gera um sinal digital ao detectar subtensão, por exemplo, abaixo de 20 V, acionando o sistema para envio da informação de que o houve queda de energia para o usuário.</p>
 
@@ -93,7 +93,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 - **Interruptor de energia: Relé SRA-05VDC-CL**
 
-<p align="center"> ![Rele](../Especificações/Materiais/Rele.jpg) </p>
+<p align="center"></b> ![Rele](../Especificações/Materiais/Rele.jpg) </b></p>
 
 <p align="justify"><b>Motivo:</b> relé de 5 VDC com contato para até 20A em 24V DC, suficiente para a corrente da impressora. Tem fácil acionamento, garantindo isolamento entre potência e lógica.</p>
 
@@ -101,7 +101,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 - **Bateria escolhida: Células 18650 Li-ion (reutilizadas de notebooks)**
 
-<p align="center"> ![Bateria](../Especificações/Materiais/Bateria.jpg) </p> 
+<p align="center"></b> ![Bateria](../Especificações/Materiais/Bateria.jpg) </b></p> 
 
 <p align="justify"><b>Motivo:</b> Alta densidade de energia, longa vida útil (500~1000 ciclos), elevada eficiência (≈ 95 %) e tensão ideal (6 S: 22,2V nominal; 25,2V carga) para sistema 24 V. Reuso de células usadas reduz custo e impacto ambiental, promovendo economia circular.</p>
 
@@ -109,7 +109,7 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
 
 - **BMS: Módulo S6 24 V 40 A para Li-íon**
 
-<p align="center"> ![BMS](../Especificações/Materiais/BMS.jpg) </p> 
+<p align="center"></b> ![BMS](../Especificações/Materiais/BMS.jpg) </b></p> 
 
 <p align="justify"><b>Motivo:</b> Oferece proteção contra sobrecarga, subtensão, sobrecorrente e balanceamento de 6S de células 18650, suportando até 40 A de descarga máxima. Garante segurança e prolonga a vida útil do banco de baterias.</p>
 
@@ -117,15 +117,15 @@ Na Figura abaixo, apresenta-se o diagrama de blocos do sistema.
  
 - **Conectores XT60**
 
-<p align="center"> ![XT60](../Especificações/Materiais/XT60.jpg) </p>
+<p align="center"></b> ![XT60](../Especificações/Materiais/XT60.jpg) </b></p>
 
 <p align="justify"><b>Motivo:</b> Padrão da Ender3 Creality e de muitas impressoras 3D, suportam correntes até 60 A e fornecem conexão robusta, polaridade garantida e baixa resistência de contato, facilitando integração direta com a impressora sem adaptadores.</p>
 
 
 # Cabos de saída: cabo elétrico flexível 2.5 mm
 
-<p align="center"> ![Cabos](../Especificações/Materiais/Cabos.jpg) </p>
+<p align="center"></b> ![Cabos](../Especificações/Materiais/Cabos.jpg) </b></p>
 
 > Motivo: Visto que a potência de saída da fonte da impressora Ender 3 Creality é de 270W a 24V, o cabo foi calculado com base na corrente máxima suportada e colocado um fator de segurança de 2. 
 
-<p align="center"> ![Cabo](../Especificações/Materiais/Cabo.jpg) </p>
+<p align="center"></b> ![Cabo](../Especificações/Materiais/Cabo.jpg) </b></p>
