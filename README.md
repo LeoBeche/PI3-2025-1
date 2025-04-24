@@ -21,7 +21,8 @@
 ![image](https://github.com/user-attachments/assets/f9519caa-b280-482d-ad2e-3e0300c46b24)
 
 ## **Metodologia**
-<p align="justify"> O projeto será apresentado em etapas, sendo elas quatro entregas. Abaixo encontra-se o que foi estipulado para cada entrega.
+<p align="justify"> O projeto será apresentado em etapas, sendo elas quatro entregas. Abaixo encontra-se o que foi estipulado para cada entrega.<p/> 
+
 - **Etapa 01:**
   - Criação de um diagrama de blocos do projeto.
   - Pesquisa e seleção dos materias a serem utilizados.
@@ -32,13 +33,12 @@
   - Validação de medição de consumo.
   - Teste individual das baterias.
   
-   **Etapa 03:**
+- **Etapa 03:**
   - Análise de consumo real da impressora em diferentes casos.
   - Teste de carga do conjunto de baterias.
   - Desenho do case.
    
-   **Etapa 04:**
+- **Etapa 04:**
   - Impressão do case do projeto .
   - Ensaio de teste finais.
   - Interação/Interface com o usuário.  
-<p/> 
