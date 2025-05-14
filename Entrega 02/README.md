@@ -58,7 +58,8 @@ Células com resistência interna > 200 mΩ: Descarte ou uso restrito.
 
   Resumo dos Critérios de Seleção
   
-Parâmetro	Critério
+  Parâmetro	Critério
+
 Tensão inicial	≥ 2,0V
 Tensão após 24h	≥ 4,0V
 Capacidade	≥ 1800mAh
