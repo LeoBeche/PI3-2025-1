@@ -1,10 +1,11 @@
 Roteiro de Teste para Células 18650 Recuperadas
 1. Preparação e Inspeção Visual
+
 Remoção de resíduos: Retire cuidadosamente fitas, adesivos e tiras de níquel das células. Utilize ferramentas apropriadas e, se necessário, um soprador de ar quente para facilitar a remoção de adesivos, evitando aquecer excessivamente as células.
 Inspeção visual: Examine cada célula em busca de danos físicos, como inchaços, vazamentos, descoloração ou odores incomuns. Descarte imediatamente qualquer célula com esses sinais.
 
 
-3. Medição da Tensão Inicial
+2. Medição da Tensão Inicial
 Instrumento necessário: Multímetro digital.
 
 Procedimento:
