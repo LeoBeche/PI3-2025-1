@@ -4,7 +4,7 @@ Remoção de resíduos: Retire cuidadosamente fitas, adesivos e tiras de níquel
 Inspeção visual: Examine cada célula em busca de danos físicos, como inchaços, vazamentos, descoloração ou odores incomuns. Descarte imediatamente qualquer célula com esses sinais.
 
 
-2. Medição da Tensão Inicial
+3. Medição da Tensão Inicial
 Instrumento necessário: Multímetro digital.
 
 Procedimento:
