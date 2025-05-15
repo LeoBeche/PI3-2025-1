@@ -1,20 +1,25 @@
-/* ADC2 Example
+/* 
+   Esse código é baseado nos códigos ADC1 e ADC2 da biblioteca de exemplos do ESP32-IDF.
+   
+   Nos testes foi usado o ADC1 para ler a corrente que passa através do sensor de corrente por efeito hall.
+   Utilizaram-se para as medições: Um divisor de tensão para medir a tensão de entrada, e no sensor de efeito hall,
+   também foi usado um divisor para que a saída dele sem corrente (2.48V) não sature o ADC.
+   
+   Dificuldades:
+   A maior dificuldade de fazer medições através dos ADCs é utilizar a atenuação e relação de tensão mais adequada
+   para garantir a melhor resolução possível para a medida. Tendo em vista a tabela localizado no repositório da espressif
+   em: esp-idf/components/driver/deprecated/driver/adc.h, leitura de tensão tem faixas que começam em 100 a 150 mV então
+   essa faixa inicial foi evitada.   
+   
+   A configuração do ADC1 foi pensada para ler a menor variação de tensão possível de corrente, os testes com o sensor de efeito Hall
+   mostraram que o aumento de 100 mA gera um aumento de 99 mV e a tensão do sensor sem corrente é de 2.48 V. Foi ignorado o valor máximo
+   de tensão de saída no sensor pois a corrente não passará de 15 Ampères... 
 
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
+   A configuração do ADC2 ....
+   
 */
 
-/* ADC1 Example
 
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "freertos/FreeRTOS.h"
