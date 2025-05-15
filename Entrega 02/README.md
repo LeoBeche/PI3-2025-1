@@ -64,7 +64,7 @@ Células com capacidade > 1800mAh: Adequadas para projetos.
   
   Temperatura durante carga	≤ 45°C
 
-  Segurança
+Segurança
 ---
 Sempre utilize equipamentos adequados e siga as instruções dos fabricantes.
 
