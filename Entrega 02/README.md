@@ -3,12 +3,12 @@
 
 - **Circuito:**
   
-Para a detecção da queda de energia, foi utilizado o circuito comparador, mostrado na imagem abaixo. Verifica-se que a saída do amplificador apresentará nível lógico alto quando ocorer a queda de energia e 0V quando estiver operando normalmente. Como o ESP32 opera com 3V3, necessitou-se colocar um divisor de tensão na saída do amplificador para adequar a tensão.
+Para a detecção da queda de energia, foi utilizado o circuito comparador, mostrado na imagem abaixo. Verifica-se que a saída do amplificador apresentará nível lógico alto quando ocorrer a queda de energia e 0V quando estiver operando normalmente. Como o ESP32 opera com 3V3, necessitou-se colocar um divisor de tensão na saída do amplificador para adequar a tensão.
 
 ![image](https://github.com/user-attachments/assets/7f016651-d7c7-4718-b856-b0c628e8db92)
 
 Optou-se por utilizar o LM358 devido às seguintes características:
-  -  Alimentão assimétrica.
+  -  Alimentação assimétrica.
   - Valor mínimo de saída de 0V.
   - Não apresenta comportamento anormal quando uma das entradas tem 0V.
   
