@@ -58,6 +58,7 @@ Para a medição de consumo de energia, foi utilizado o circuito de medição de
 
 **Procedimento:**
 Meça a tensão de cada célula.
+
 **Critérios de seleção:**
 Células com tensão < 2,0V: Descarte, pois podem estar profundamente descarregadas e instáveis.
 Células com tensão entre 2,0V e 4,2V: Prosseguir para o próximo passo.
