@@ -33,6 +33,8 @@ A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao remov
 ## **Roteiro de Teste para Células 18650 Recuperadas**
 1. **Preparação e Inspeção Visual**
 ---
+![image](https://github.com/user-attachments/assets/66adb60d-f968-463e-83bf-26c08dd41e30)
+
 **Remoção de resíduos:** Retire cuidadosamente fitas, adesivos e tiras de níquel das células. Utilize ferramentas apropriadas e, se necessário, um soprador de ar quente para facilitar a remoção de adesivos, evitando aquecer excessivamente as células.
 
 **Inspeção visual:** Examine cada célula em busca de danos físicos, como inchaços, vazamentos, descoloração ou odores incomuns. Descarte imediatamente qualquer célula com esses sinais.
@@ -51,11 +53,12 @@ Células com tensão entre 2,0V e 4,2V: Prosseguir para o próximo passo.
 
 3. **Carga Inicial**
 ---
-**Equipamento recomendado:** Carregadores específicos para 18650, como LiitoKala Lii-500 ou Opus BT-C3100.
+**Equipamento recomendado:** Carregadores específicos para 18650, para os testes foram utilizados 3 carregadores individuais para baterias de lítio 18650.
+![image](https://github.com/user-attachments/assets/48153725-988e-468a-b991-2bbf9bcd9e62)
+
 
 **Parâmetros de carga:**
-Tensão final: 4,2V
-Corrente de carga: 0,5C (exemplo: para uma célula de 2500mAh, utilize 1,25A)
+Tensão final: ~ 4,1V
 
 **Monitoramento:**
 Observe a temperatura durante a carga. Se a célula aquecer excessivamente (acima de 45°C), descarte-a.
@@ -71,7 +74,7 @@ Se a tensão cair abaixo de 4,0V, a célula apresenta alta autodescarga e deve s
 
 5. **Teste de Capacidade**
 ---
-**Equipamento necessário:** Carregadores com função de teste de capacidade, como LiitoKala Lii-500 ou Opus BT-C3100.
+**Equipamento necessário:** Carregadores com função de teste de capacidade.
 
 - **Procedimento:**
 
@@ -105,3 +108,14 @@ Sempre utilize equipamentos adequados e siga as instruções dos fabricantes.
 Realize os testes em ambientes ventilados e longe de materiais inflamáveis.
 
 Descarte as células danificadas de acordo com as regulamentações locais.
+
+**Resultados dos Testes:**
+---
+
+Foram inicialmente avaliadas 11 células 18650 recuperadas de baterias de notebooks antigos. Todas elas apresentaram tensão superior a 2V no momento da triagem inicial, o que indicava que estavam dentro de um intervalo aceitável para prosseguir com os testes seguintes.
+
+Após a carga completa de todas as células até 4,1V, elas foram deixadas em repouso por um período de 24 horas, com o objetivo de verificar a estabilidade da tensão — uma etapa fundamental para identificar células com alta taxa de autodescarga. Esse comportamento geralmente está associado a danos internos ou degradação química que comprometem tanto a capacidade de retenção de carga quanto a segurança em aplicações práticas.
+
+Ao final do período de repouso, duas células apresentaram queda significativa de tensão, ficando abaixo de 4,0V. Essa variação é um indicativo claro de que essas células não conseguem manter a carga adequadamente mesmo em repouso, e por isso foram consideradas inadequadas e descartadas, seguindo critérios de segurança e desempenho adotados em boas práticas de reaproveitamento de baterias.
+
+As nove células restantes mantiveram tensões próximas a 4,1V, demonstrando boa estabilidade e comportamento confiável durante o teste. Essas células foram então aprovadas e consideradas aptas para utilização no projeto, seja em pacotes de bateria, sistemas de energia portátil ou aplicações de baixo consumo. A realização deste processo de avaliação garante que apenas as células em boas condições sejam reaproveitadas, contribuindo para a segurança, eficiência e durabilidade do projeto.
