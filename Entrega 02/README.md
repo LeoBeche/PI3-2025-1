@@ -29,6 +29,18 @@ A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao remov
 ![Sem título](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
 ---
+## **Medição de consumo de energia**
+
+- **Circuito:**
+  
+Para a medição de consumo de energia, foi utilizado o circuito de medição de tensão e corrente. Verifica-se a tensão e corrente, é feita a multiplicação, resultando em potência, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
+
+
+![image](https://github.com/user-attachments/assets/5106227e-a685-4b29-93f8-e59a52547741)
+
+
+
+---
 
 ## **Roteiro de Teste para Células 18650 Recuperadas**
 1. **Preparação e Inspeção Visual**
@@ -54,6 +66,8 @@ Células com tensão entre 2,0V e 4,2V: Prosseguir para o próximo passo.
 3. **Carga Inicial**
 ---
 **Equipamento recomendado:** Carregadores específicos para 18650, para os testes foram utilizados 3 carregadores individuais para baterias de lítio 18650.
+
+
 ![image](https://github.com/user-attachments/assets/48153725-988e-468a-b991-2bbf9bcd9e62)
 
 
