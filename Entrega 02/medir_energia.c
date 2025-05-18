@@ -1,7 +1,10 @@
-/* 
+﻿/* 
    Esse código é baseado nos códigos ADC1 e ADC2 da biblioteca de exemplos do ESP32-IDF.
    
    Nos testes foi usado o ADC1 para ler a corrente que passa através do sensor de corrente por efeito hall.
+   O ADC2 foi usado para a mediçao de tensão pois ele será usado menos para essa função, já que, a tensão não mudará muito
+   enquanto o ADC pode ser usado para outros objetivos como a comunicação via WI-FI.
+  
    Utilizaram-se para as medições: Um divisor de tensão para medir a tensão de entrada, e no sensor de efeito hall,
    também foi usado um divisor para que a saída dele sem corrente (2.48V) não sature o ADC.
    
@@ -12,10 +15,125 @@
    essa faixa inicial foi evitada.   
    
    A configuração do ADC1 foi pensada para ler a menor variação de tensão possível de corrente, os testes com o sensor de efeito Hall
-   mostraram que o aumento de 100 mA gera um aumento de 99 mV e a tensão do sensor sem corrente é de 2.48 V. Foi ignorado o valor máximo
-   de tensão de saída no sensor pois a corrente não passará de 15 Ampères... 
+   mostraram que o aumento de 1 A gera um aumento de 99 mV e a tensão do sensor sem corrente é de 2.48 V. Foi ignorado o valor máximo
+   de tensão de saída no sensor pois a corrente não passará de 15 Ampères. Com isso é possível correlacionar os valores de atenuação que 
+   contenha a maior quantidade de valores por milivolt de incremento de tensão.
 
-   A configuração do ADC2 ....
+   Para calcular esse parâmetro foi feito as seguintes correlações para os ADC1 usando 12 bits:
+
+   V_offset = 2.48   
+
+   1000*V_max_adc/(2^12-1) = V_passo (miliVolts/sample)
+   
+   resolucao = 0 A - 15 A 
+
+   escursao = 0.099 * 15 (V/A * A) -> 1.485 V 
+
+   tensao_total_maxima = V_offset  + escursao  -> 3,965 V
+
+   Para 0 db -> 100 mV - 950 mv
+	
+	Ou seja 950 mV -> 3965 mV
+
+	relação de 0.2396
+	
+	relação_tensão_corrente = com essa relação, cada ampère de corente se traduz em: 23.72 mV/A (99 mV/A * relação)
+
+	degrau: V_passo/relação_tensão_corrente -> 0.01132461 A/sample -> 11.32461 mA/sample 
+
+
+   Para 2.5 db ->
+	
+	Ou seja 1250 mV -> 3965 mV
+	
+	relação de 0.61791
+	
+	relação_tensão_corrente = com essa relação, cada ampère de corente se traduz em: 61.173 mV/A (99 mV/A * relação)
+	
+	degrau: V_passo/relação_tensão_corrente -> 0.0131735 A/sample -> 13.1735 mA/sample 
+
+   
+   Para 11 db ->
+	
+	Ou seja 1750 mV -> 3965 mV
+	
+	relação de 0.61791
+	
+	relação_tensão_corrente = com essa relação, cada ampère de corente se traduz em: 61.173 mV/A (99 mV/A * relação)
+	
+	degrau: V_passo/relação_tensão_corrente -> 0.0131735 A/sample -> 13.1735 mA/sample 
+
+
+   Para 11 db ->
+	
+	Ou seja 2450 mV -> 3965 mV
+	
+	relação de 0.61791
+	
+	relação_tensão_corrente = com essa relação, cada ampère de corente se traduz em: 61.173 mV/A (99 mV/A * relação)
+	
+	degrau: V_passo/relação_tensão_corrente -> 0.0131735 A/sample -> 13.1735 mA/sample 
+          
+	
+   Com esses valores usamos a atenução de 0db e relação de 0.2396
+   
+
+   A configuração do ADC2 tem em vista o divisor de tensão, como medição mínima de (100 - 150 mV), então a minima tensão
+   a ser medida será proporcional a tensão máxima medida e a atenuação escolhida. Ter um offset não é um problema já que 
+   o intuito é ler valores de 15 a 27 volts.  
+
+   1000*V_max_adc/(2^12-1) = V_passo (miliVolts/sample)
+   
+   resolucao = 15 V - 27 V 
+
+   escursao = 12 V 
+
+   tensao_total_maxima = 27 V
+
+   Para 0 db -> 100 mV - 950 mv
+	
+	Ou seja 950 mV -> 27000 mV
+
+	relação de 0.03518 V/V ou 35.18 mV/V
+	
+	degrau: V_passo/relação -> 7.6345 mV/sample
+
+        com offset de leitura de 2.84 Volts (100 mV)
+
+
+   Para 2.5 db ->
+	
+	Ou seja 1250 mV -> 27000 mV
+	
+	relação de 0.046296
+	
+	degrau: V_passo/relação -> 7.912 mV/sample
+	
+	com offset de leitura de 2.16 V (100 mV)  
+
+   
+   Para 11 db ->
+	
+	Ou seja 1750 mV -> 27000 mV
+	
+	relação de 0.064815
+		
+	degrau: V_passo/relação -> 8.29 mV/sample 
+
+	com offset de leitura de 2.31 V (150 mV)  	
+
+
+   Para 11 db ->
+	
+	Ou seja 2450 mV -> 27000 mV
+	
+	relação de 0.090741
+	
+	degrau: V_passo/relação_tensão_corrente -> 8.88 mV/sample 
+         
+   	com offset de leitura de 1.65 V (150 mV) 
+
+   Com esses valores usamos a atenução de 0db e relação de 0.03518
    
 */
 
@@ -35,7 +153,7 @@
 
 // resistores de 1184 e 4.97k homs
 
-#define DEFAULT_VREF                3300        //Use adc2_vref_to_gpio() to obtain a better estimate
+#define DEFAULT_VREF                1100        //Use adc2_vref_to_gpio() to obtain a better estimate
 #define NO_OF_SAMPLES               100         //Multisampling
 
 #define TRANS_CONDUT                99          // 99 mV/A , medido em bancada e feito a média -- visitar medição 
@@ -106,7 +224,7 @@ void app_main(void)
 
     //Characterize ADC
     adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
-    esp_adc_cal_value_t val_type = esp_adc_cal_characterize(unit, atten, ADC_WIDTH_BIT_12, 1100, adc_chars);
+    esp_adc_cal_value_t val_type = esp_adc_cal_characterize(unit, atten, ADC_WIDTH_BIT_12, DEFAULT_VREF, adc_chars);
     print_char_val_type(val_type);
 
     int32_t valor_corrigido = 0;
@@ -138,7 +256,7 @@ void app_main(void)
 
     //be sure to do the init before using adc2. 
     printf("adc2_init...\n");
-    adc2_config_channel_atten( ADC2_CHANNEL, ADC_ATTEN_11db );
+    adc2_config_channel_atten( ADC2_CHANNEL, atten );
 
     vTaskDelay(2 * portTICK_PERIOD_MS);
     // -----------------------------
