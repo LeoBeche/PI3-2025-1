@@ -17,8 +17,7 @@ ESBOÇO Realizou-se a montagem do circuito em uma placa universal, apresentada na
 
 ![image](https://github.com/user-attachments/assets/878af08e-ccc4-40cf-91e7-01609b6b331a)
 
-title: Medição da Mesa e Bico Esquentando
-product_video: 'https://youtube.com/shorts/ABSbG42qyyc'
+Medição da Mesa e Bico Esquentando: https://youtube.com/shorts/ABSbG42qyyc
 
 ---
 
@@ -28,8 +27,7 @@ ESBOÇO A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao
 
 ![Sem título](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
-title: Medição Nivelamento
-product_video: 'https://youtube.com/shorts/ZBV85Ab9q4k'
+Medição Nivelamento: https://youtube.com/shorts/ZBV85Ab9q4k
 
 ---
 
@@ -39,8 +37,7 @@ ESBOÇO A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao
 
 ![Sem título](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
-title: Medição Impressão
-product_video: 'https://youtube.com/shorts/0EHOhPpAPSg?feature=share'
+Medição Impressão: https://youtube.com/shorts/0EHOhPpAPSg?feature=share
 
 ---
 
@@ -50,8 +47,7 @@ ESBOÇO A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao
 
 ![Sem título](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
-title: Medição Stand-by
-product_video: 'https://youtube.com/shorts/RgSNFNDTvaA?feature=share'
+Medição Stand-by: https://youtube.com/shorts/RgSNFNDTvaA?feature=share
 
 ---
 
