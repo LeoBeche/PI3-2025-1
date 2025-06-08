@@ -3,7 +3,7 @@
 
 - **Adaptador**
   
-Para a detecção da queda de energia, foi utilizado um adaptador da entrada de tensão da impressora Ender e conectado o nosso sistema de medição, foto do adaptador:
+Para a análise de energia, foi utilizado um adaptador da entrada de tensão da impressora Ender e conectado o nosso sistema de medição, foto do adaptador:
 
 ![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/Adaptador.jpg)
 
@@ -33,6 +33,7 @@ ESBOÇO A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao
 
 ![Sem título](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
+link: https://youtube.com/shorts/0EHOhPpAPSg?feature=share
 ---
 
 - **Stand-by**
@@ -40,7 +41,7 @@ ESBOÇO A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao
 ESBOÇO A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao remover o Jumper do circuito.
 
 ![Sem título](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
-
+link: https://youtube.com/shorts/RgSNFNDTvaA?feature=share
 ---
 
 ## **Teste de Carga do Conjunto de Baterias**
