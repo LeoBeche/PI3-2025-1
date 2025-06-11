@@ -3,51 +3,54 @@
 
 - **Adaptador**
   
-Para a an·lise de energia, foi utilizado um adaptador da entrada de tens„o da impressora Ender e conectado o nosso sistema de mediÁ„o, foto do adaptador:
+Para a an√°lise de energia, foi utilizado um adaptador da entrada de tens√£o da impressora Ender e conectado o nosso sistema de medi√ß√£o, foto do adaptador:
 
 ![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/Adaptador.jpg)
 
-Esse adptador È feito de maneira que a entrada de tens„o da fonte passe pela circuito medidor de corrente aumentando a tens„o de saÌda dele (isso È importante porque o cÛdigo feito apenas detecta variaÁ„o positiva de tens„o a partir do offset de zero corrente)
+Esse adptador √© feito de maneira que a entrada de tens√£o da fonte passe pela circuito medidor de corrente aumentando a tens√£o de sa√≠da dele (isso √© importante porque o c√≥digo feito apenas detecta varia√ß√£o positiva de tens√£o a partir do offset de zero corrente)
   
+---
+As imagens asseguir mostram a m√©dia da corrente, tens√£o, pot√™ncia de um per√≠odo de 16 milissegundos e a energia consumida, com mensagens de per√≠odo 1 segundo.
 ---
 
 - **Mesa e Bico Esquentando**
 
-ESBO«O Realizou-se a montagem do circuito em uma placa universal, apresentada na figura abaixo, para verificar o funcionamento do circuito e poder testar juntamente com o ESP32. Para simular a queda de energia utilizou-se um jumper, indicado com o quadrado vermelho.
+![image][https://github.com/user-attachments/assets/878af08e-ccc4-40cf-91e7-01609b6b331a](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/esquenta_bico_e_mesa_corrente.png)
 
-![image](https://github.com/user-attachments/assets/878af08e-ccc4-40cf-91e7-01609b6b331a)
+Medi√ß√£o da Mesa e Bico Esquentando: https://youtube.com/shorts/ABSbG42qyyc
 
-MediÁ„o da Mesa e Bico Esquentando: https://youtube.com/shorts/ABSbG42qyyc
+Com a medi√ß√£o foi percebido que esse √© um per√≠odo cr√≠tico de corrente no sistema, pois √© o momento de maior consumo. A primeira mensagem do monitor serial foi feita momentos antes do bico e a mesa terem sido completamente esquentadas o que se evidencia pelas medi√ß√µes seguintes onde a impressora apenas mant√©m sua temperatura.
 
 ---
 
 - **Nivelamento**
 
-ESBO«O A imagem abaixo apresenta o resultado com o cÛdigo *"detecta_queda.c"* ao remover o Jumper do circuito.
+![Sem t√≠tulo](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
-![Sem tÌtulo](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
+Medi√ß√£o Nivelamento: https://youtube.com/shorts/ZBV85Ab9q4k
 
-MediÁ„o Nivelamento: https://youtube.com/shorts/ZBV85Ab9q4k
+Pode-se notar que esse √© um per√≠odo em que o consumo da impressora √© baixo, pois s√≥ atua o seu sistema de comando e os motores, ficando com uma corrente m√©dia em torno de 500 miliamp√®res e 2 amp√®res, o que est√° dentro do esperado pois cada motor da impressora tem um consumo nominal de 800 miliamp√®res, o que se encaixa com a medida pois o sistema se move, para e volta a se mover, deixando essa caracter√≠stica no consumo. 
 
 ---
 
-- **Impress„o**
+- **Impress√£o**
 
-ESBO«O A imagem abaixo apresenta o resultado com o cÛdigo *"detecta_queda.c"* ao remover o Jumper do circuito.
+![Sem t√≠tulo](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
-![Sem tÌtulo](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
+Medi√ß√£o Impress√£o: https://youtube.com/shorts/0EHOhPpAPSg?feature=share
 
-MediÁ„o Impress„o: https://youtube.com/shorts/0EHOhPpAPSg?feature=share
+Nesse caso o consumo flutua bastante, o que √© esperado por causa da din√¢mica do sistema.
 
 ---
 
 - **Stand-by**
 
-ESBO«O A imagem abaixo apresenta o resultado com o cÛdigo *"detecta_queda.c"* ao remover o Jumper do circuito.
+![Sem t√≠tulo](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
 
-![Sem tÌtulo](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
+Medi√ß√£o Stand-by: https://youtube.com/shorts/RgSNFNDTvaA?feature=share
 
-MediÁ„o Stand-by: https://youtube.com/shorts/RgSNFNDTvaA?feature=share
+O estado dormente da impressora √© bem caracterizado e assim √© poss√≠vel garantir que o sistema perceba essa mudan√ßa de comportamento e desligue conforme o esperado. 
+Al√©m disso, o consumo medido ficou dentro do esperado, como essa impress√£o
 
 ---
 
@@ -55,7 +58,7 @@ MediÁ„o Stand-by: https://youtube.com/shorts/RgSNFNDTvaA?feature=share
 
 - **Circuito:**
   
-ESBO«O Para a mediÁ„o de consumo de energia, foi utilizado o circuito de mediÁ„o de tens„o e corrente. Verifica-se a tens„o e corrente, È feita a multiplicaÁ„o, resultando em potÍncia, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
+ESBO√áO Para a medi√ß√£o de consumo de energia, foi utilizado o circuito de medi√ß√£o de tens√£o e corrente. Verifica-se a tens√£o e corrente, √© feita a multiplica√ß√£o, resultando em pot√™ncia, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
 
 
 ![image](https://github.com/user-attachments/assets/5106227e-a685-4b29-93f8-e59a52547741)
@@ -67,7 +70,7 @@ ESBO«O Para a mediÁ„o de consumo de energia, foi utilizado o circuito de mediÁ„o
 
 - **Circuito:**
   
-ESBO«O Para a mediÁ„o de consumo de energia, foi utilizado o circuito de mediÁ„o de tens„o e corrente. Verifica-se a tens„o e corrente, È feita a multiplicaÁ„o, resultando em potÍncia, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
+ESBO√áO Para a medi√ß√£o de consumo de energia, foi utilizado o circuito de medi√ß√£o de tens√£o e corrente. Verifica-se a tens√£o e corrente, √© feita a multiplica√ß√£o, resultando em pot√™ncia, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
 
 
 ![image](https://github.com/user-attachments/assets/5106227e-a685-4b29-93f8-e59a52547741)
