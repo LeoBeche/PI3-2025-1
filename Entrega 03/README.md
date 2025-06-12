@@ -101,6 +101,12 @@ O teste prático definitivo foi realizado iniciando uma impressão e, em seguida
 
 https://photos.app.goo.gl/ZgK85YDPrmBBUdR36 (link para o video de teste)
 
+**Projeto do Compartimento Final das Baterias**
+
+Após o sucesso dos testes, foi projetado o compartimento definitivo que irá alocar todas as baterias de forma segura e organizada. O design consiste em um suporte modular: serão utilizados dois slots 3S2P idênticos que, quando associados em série, formarão o banco de baterias 6S2P final para a montagem dentro da case.
+
+![image](https://github.com/user-attachments/assets/f3310ff4-c8e1-4a45-b330-47a2805cf3f0)
+
 ---
 
 ### **Projeto 3D da Case do Equipamento**
