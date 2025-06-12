@@ -50,30 +50,7 @@ Nesse caso o consumo flutua bastante, o que é esperado por causa da dinâmica d
 Medição Stand-by: https://youtube.com/shorts/RgSNFNDTvaA?feature=share
 
 O estado dormente da impressora é bem caracterizado e assim é possível garantir que o sistema perceba essa mudança de comportamento e desligue conforme o esperado. 
-Além disso, o consumo medido ficou dentro do esperado, como essa impressão
-
----
-
-## **Teste de Carga do Conjunto de Baterias**
-
-- **Circuito:**
-  
-ESBOÇO Para a medição de consumo de energia, foi utilizado o circuito de medição de tensão e corrente. Verifica-se a tensão e corrente, é feita a multiplicação, resultando em potência, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
-
-
-![image](https://github.com/user-attachments/assets/5106227e-a685-4b29-93f8-e59a52547741)
-
----
-
-
-## **Desenho do Case**
-
-- **Circuito:**
-  
-ESBOÇO Para a medição de consumo de energia, foi utilizado o circuito de medição de tensão e corrente. Verifica-se a tensão e corrente, é feita a multiplicação, resultando em potência, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
-
-
-![image](https://github.com/user-attachments/assets/5106227e-a685-4b29-93f8-e59a52547741)
+Além disso, o consumo medido ficou dentro do esperado. Como essa impressão durou cerca de 20 minutos a energia máxima possível de ser consumida é de 90 Wh (tendo em vista que a impressora tem um consumo de 270W), sendo assim o valor de 84 Wh encontrado no fim da medição é um indicativo de que a instrumentação para a medição está em sincronia com o sistema. 
 
 ---
 
