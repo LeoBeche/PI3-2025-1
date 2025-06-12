@@ -35,7 +35,7 @@ Pode-se notar que esse é um período em que o consumo da impressora é baixo, p
 
 - **Impressão**
 
-![Sem título](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/impressora_idle.PNG)
+![Sem título](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/impress%C3%A3o.PNG)
 
 Medição Impressão: https://youtube.com/shorts/0EHOhPpAPSg?feature=share
 
