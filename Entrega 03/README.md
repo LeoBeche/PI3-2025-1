@@ -76,3 +76,17 @@ ESBOÇO Para a medição de consumo de energia, foi utilizado o circuito de medi
 ![image](https://github.com/user-attachments/assets/5106227e-a685-4b29-93f8-e59a52547741)
 
 ---
+
+### **Projeto 3D da Case do Equipamento**
+
+Para abrigar o **conjunto de baterias** e o **circuito de medição**, foi desenvolvido um projeto de case customizada. O processo iniciou com a tomada de medidas da parte traseira da impressora 3D, o que permitiu elaborar um design que se acopla de forma precisa e funcional ao equipamento.
+
+![image](https://github.com/user-attachments/assets/afd3850e-05d8-490f-a7b4-fd1cd03f79de)
+
+Considerando as dimensões do banco de baterias e das placas eletrônicas, foi possível elaborar um projeto de case robusto. O design visa não apenas proteger os componentes, mas também garantir durabilidade e praticidade, com uma estrutura firme e entradas e saídas de cabos bem definidas.
+
+![image](https://github.com/user-attachments/assets/ca3ad015-c0cc-469f-a98d-0f863b47c642)
+
+A case consiste em uma caixa com tampa parafusada para fácil acesso e manutenção. Possui aberturas para a passagem dos cabos que conectam o sistema à fonte de alimentação e à impressora. Além disso, conta com dois orifícios projetados para a instalação de interruptores de energia, garantindo o controle manual do sistema. O espaço interno foi otimizado para acomodar de forma segura e organizada o banco de baterias junto ao circuito de medição.
+
+![image](https://github.com/user-attachments/assets/9d87047d-0cac-4c81-90de-278f5fdd2f7b)
