@@ -7,7 +7,7 @@ Para a análise de energia, foi utilizado um adaptador da entrada de tensão da 
 
 ![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/Adaptador.jpg)
 
-Esse adptador é feito de maneira que a entrada de tensão da fonte passe pela circuito medidor de corrente aumentando a tensão de saída dele (isso é importante porque o código feito apenas detecta variação positiva de tensão a partir do offset de zero corrente)
+Esse adptador é feito de maneira que a entrada de tensão da fonte passe pela circuito medidor de corrente no sentido positivo de medição dele (isso é importante porque o código feito apenas detecta variação positiva de tensão a partir do offset de zero corrente).
   
 ---
 As imagens asseguir mostram a média da corrente, tensão, potência de um período de 16 milissegundos e a energia consumida, com mensagens de período 1 segundo.
@@ -15,7 +15,7 @@ As imagens asseguir mostram a média da corrente, tensão, potência de um perí
 
 - **Mesa e Bico Esquentando**
 
-![image][https://github.com/user-attachments/assets/878af08e-ccc4-40cf-91e7-01609b6b331a](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/esquenta_bico_e_mesa_corrente.png)
+![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/esquenta_bico_e_mesa_corrente.png)
 
 Medição da Mesa e Bico Esquentando: https://youtube.com/shorts/ABSbG42qyyc
 
