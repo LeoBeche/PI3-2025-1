@@ -15,7 +15,7 @@ As imagens asseguir mostram a média da corrente, tensão, potência de um perí
 
 - **Mesa e Bico Esquentando**
 
-![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/esquenta_bico_e_mesa_corrente.png](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/bico_emesa_esquentando.PNG)
+![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/bico_e_mesa_esquentando.PNG)
 
 Medição da Mesa e Bico Esquentando: https://youtube.com/shorts/ABSbG42qyyc
 
@@ -35,7 +35,7 @@ Pode-se notar que esse é um período em que o consumo da impressora é baixo, p
 
 - **Impressão**
 
-![Sem título](https://github.com/user-attachments/assets/c18f7853-6ea9-4e49-b850-8157645b7cae)
+![Sem título](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/impressora_idle.PNG)
 
 Medição Impressão: https://youtube.com/shorts/0EHOhPpAPSg?feature=share
 
