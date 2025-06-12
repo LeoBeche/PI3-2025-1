@@ -77,6 +77,32 @@ ESBOÇO Para a medição de consumo de energia, foi utilizado o circuito de medi
 
 ---
 
+### **Teste de Carga do Banco de Baterias na Impressora 3D**
+
+Para validar o desempenho do banco de baterias, foram utilizados suportes impressos em 3D, que permitiram uma conexão rápida e segura das células ao Sistema de Gerenciamento de Bateria (BMS).
+
+![image](https://github.com/user-attachments/assets/1b2a5c9b-4e5d-4d52-980c-ada7ee057f2a)
+
+**Teste Inicial: Configuração 6S1P**
+
+No primeiro teste, foi montada uma configuração **6S1P** (6 células em série). O banco de baterias conseguiu alimentar com sucesso tarefas de menor demanda, como o aquecimento do bico e a movimentação dos eixos.
+
+Porém, ao tentar aquecer a mesa da impressora, a demanda de corrente inicial foi excessivamente alta, confirmando o que a análise de consumo já havia apontado como o **período crítico do sistema**. Esse pico de corrente provocou uma queda de tensão abrupta na célula com maior resistência interna, fazendo com que o BMS, por segurança, desligasse todo o sistema após cerca de 15 segundos.
+
+![image](https://github.com/user-attachments/assets/f3f601fc-c695-43ed-b47c-0ca1b96e327a)
+
+**Teste Final: Configuração 6S2P**
+
+Para solucionar a limitação de corrente, a configuração foi alterada para **6S2P** (6 células em série, 2 em paralelo), dobrando a capacidade de descarga do conjunto. Com essa nova montagem, a impressora operou em todas as suas funções sem problemas.
+
+O teste prático definitivo foi realizado iniciando uma impressão e, em seguida, desconectando a fonte da rede elétrica. A impressora manteve-se operante com a energia das baterias por **mais de 15 minutos**, um resultado excelente que superou em muito a expectativa inicial do projeto, que era de resistir por pelo menos 1 minuto. Isso valida a eficácia do sistema como uma fonte de energia ininterrupta (No-break).
+
+![image](https://github.com/user-attachments/assets/5412cf63-7a3b-4fc4-ac48-573c77f9e2e6)
+
+https://photos.app.goo.gl/ZgK85YDPrmBBUdR36 (link para o video de teste)
+
+---
+
 ### **Projeto 3D da Case do Equipamento**
 
 Para abrigar o **conjunto de baterias** e o **circuito de medição**, foi desenvolvido um projeto de case customizada. O processo iniciou com a tomada de medidas da parte traseira da impressora 3D, o que permitiu elaborar um design que se acopla de forma precisa e funcional ao equipamento.
