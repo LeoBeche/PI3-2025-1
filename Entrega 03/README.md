@@ -1,4 +1,4 @@
-
+﻿
 ## **Análise do consumo real da impressora em diferentes casos**
 
 - **Adaptador**
@@ -78,7 +78,7 @@ Tensão de entrada: 23.863560 V
 Pontência instantânea: 59.152 W
 Energia: 49267.120 J
 ```
-<p align="justify">Pode-se notar que, nesse modo de operação, o consumo da impressora é baixo, pois só atua o seu sistema de comando e os motores. A corrente média é, em torno de, 500 mA a 2 A, o que está dentro do esperado, pois cada motor da impressora tem um consumo nominal de 800 mA e o sistema se move, para e volta a se mover, o que justifica essa característica de consumo.</p>
+<p align="justify">Pode-se notar que, nesse modo de operação, o consumo da impressora é baixo, pois só atua o seu sistema de comando e os motores. A corrente média é, em torno de, 700 mA a 2 A, o que está dentro do esperado, pois cada motor da impressora tem um consumo nominal de 800 mA e o sistema se move, para e volta a se mover, o que justifica essa característica de consumo.</p>
 
 :clapper: Vídeo da medição do consumo no nivelamento: https://youtube.com/shorts/ZBV85Ab9q4k
 

@@ -1,4 +1,4 @@
-
+﻿
 ## **Detecção de queda de energia**
 
 - **Circuito:**
@@ -33,7 +33,7 @@ A imagem abaixo apresenta o resultado com o código *"detecta_queda.c"* ao remov
 
 - **Circuito:**
   
-Para a medição de consumo de energia, foi utilizado o circuito de medição de tensão e corrente. Verifica-se a tensão e corrente, é feita a multiplicação, resultando em potência, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia.
+Para a medição de consumo de energia, foi utilizado o circuito de medição de tensão e corrente. Verifica-se a tensão e corrente, é feita a multiplicação, resultando em potência, assim, multiplicado pelo tempo que a task utiliza, fazendo com que o resultado seja o consumo de energia. Fotos precisas da medição estão na pasta "medições" 
 
 
 ![image](https://github.com/user-attachments/assets/5106227e-a685-4b29-93f8-e59a52547741)
