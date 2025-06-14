@@ -245,7 +245,7 @@ Energia: 84.916874 Wh
 
 <p align="justify">O teste prático definitivo foi realizado iniciando uma impressão e, em seguida, desconectando a fonte da rede elétrica. A impressora manteve-se operante, com a energia das baterias, por <bold>mais de 15 minutos</bold>. Um resultado excelente que superou em muito a expectativa inicial do projeto, que era de resistir por, pelo menos, 1 minuto. Isso valida a eficácia do sistema como uma fonte de energia ininterrupta (No-break). </p>
 
-<p align="center"><b>FIGURA 04 - Teste das baterias, na configuração 6S2P, alimentado a impressora </b></p>
+<p align="center"><b>FIGURA 04 - Teste das baterias, na configuração 6S2P, alimentando a impressora </b></p>
 
 <div align="center">
 
