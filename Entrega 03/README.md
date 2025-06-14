@@ -226,9 +226,9 @@ Energia: 84.916874 Wh
 
 ### **Teste Inicial: Configuração 6S1P**
 
-<p align="justify"> No primeiro teste, foi montada uma configuração <bold>6S1P</bold> (6 células em série). O banco de baterias conseguiu alimentar com sucesso tarefas de menor demanda, como o aquecimento do bico e a movimentação dos eixos.</p>
+<p align="justify"> No primeiro teste, foi montada uma configuração <b>6S1P</b> (6 células em série). O banco de baterias conseguiu alimentar com sucesso tarefas de menor demanda, como o aquecimento do bico e a movimentação dos eixos.</p>
 
-<p align="justify">Porém, ao tentar aquecer a mesa da impressora, a demanda de corrente inicial foi excessivamente alta, confirmando o que a análise de consumo já havia apontado como o <bold>momento crítico do sistema</bold>. Esse pico de corrente provocou uma queda de tensão abrupta na célula com maior resistência interna, fazendo com que o BMS, por segurança, desligasse todo o sistema após cerca de 15 segundos. </p>
+<p align="justify">Porém, ao tentar aquecer a mesa da impressora, a demanda de corrente inicial foi excessivamente alta, confirmando o que a análise de consumo já havia apontado como o <b>momento crítico do sistema</b>. Esse pico de corrente provocou uma queda de tensão abrupta na célula com maior resistência interna, fazendo com que o BMS, por segurança, desligasse todo o sistema após cerca de 15 segundos. </p>
 
 <p align="center"><b>FIGURA 03 - montagem das baterias na configuração 6S1P</b></p>
 
@@ -241,9 +241,9 @@ Energia: 84.916874 Wh
 
 ### **Teste Final: Configuração 6S2P**
 
-<p align="justify"> Para solucionar a limitação de corrente, a configuração foi alterada para <bold>6S2P</bold> (6 células em série, 2 em paralelo), dobrando a capacidade de descarga do conjunto. Com essa nova montagem, a impressora operou em todas as suas funções sem problemas. </p>
+<p align="justify"> Para solucionar a limitação de corrente, a configuração foi alterada para <b>6S2P</b> (6 células em série, 2 em paralelo), dobrando a capacidade de descarga do conjunto. Com essa nova montagem, a impressora operou em todas as suas funções sem problemas. </p>
 
-<p align="justify">O teste prático definitivo foi realizado iniciando uma impressão e, em seguida, desconectando a fonte da rede elétrica. A impressora manteve-se operante, com a energia das baterias, por <bold>mais de 15 minutos</bold>. Um resultado excelente que superou em muito a expectativa inicial do projeto, que era de resistir por, pelo menos, 1 minuto. Isso valida a eficácia do sistema como uma fonte de energia ininterrupta (No-break). </p>
+<p align="justify">O teste prático definitivo foi realizado iniciando uma impressão e, em seguida, desconectando a fonte da rede elétrica. A impressora manteve-se operante, com a energia das baterias, por <b>mais de 15 minutos</b>. Um resultado excelente que superou em muito a expectativa inicial do projeto, que era de resistir por, pelo menos, 1 minuto. Isso valida a eficácia do sistema como uma fonte de energia ininterrupta (No-break). </p>
 
 <p align="center"><b>FIGURA 04 - Teste das baterias, na configuração 6S2P, alimentando a impressora </b></p>
 
@@ -272,7 +272,7 @@ Energia: 84.916874 Wh
 
 ## **Projeto 3D da Case do Equipamento**
 
-<p align="justify">Para abrigar o <bold>conjunto de baterias</bold> e o <bold>circuito de medição</bold>, foi desenvolvido um projeto de case customizada. O processo iniciou com a tomada de medidas da parte traseira da impressora 3D, o que permitiu elaborar um design que se acopla de forma precisa e funcional ao equipamento.</p>
+<p align="justify">Para abrigar o <b>conjunto de baterias</b> e o <b>circuito de medição</b>, foi desenvolvido um projeto de case customizada. O processo iniciou com a tomada de medidas da parte traseira da impressora 3D, o que permitiu elaborar um design que se acopla de forma precisa e funcional ao equipamento.</p>
 
 <p align="center"><b>FIGURA 06 - Suporte onde a impressora será apoiada</b></p>
 
