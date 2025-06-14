@@ -7,7 +7,9 @@
 
 <p align="center"><b>FIGURA 01 - Adaptador</b></p>
 
-![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/Adaptador.jpg)
+<div align="center">
+    <img width="400" src="https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/Adaptador.jpg"/>
+</div>
 
 <p align="justify">Esse adptador foi desenvolvido de maneira que a entrada de tensão da fonte passe pelo circuito medidor de corrente, no sentido positivo de medição dele (isso é importante, porque o nosso código apenas detecta variação positiva de tensão sobre o offset de 2.5V, sendo que esse valor representa corrente nula). </p>
   
