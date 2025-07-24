@@ -76,7 +76,20 @@ Para configurar o sistema, 4 informações precisarão ser enviadas:
 
 <p align="justify"> Após o sucesso na conexão com o WiFi e com o CallmeBot, o Bluetooth é desligado (por isso aparece "Connection lost") e as credenciais são salvas no NVS (Non-Volatile Storage), portanto, o usuário não precisará refazer esse processo sempre que religar o equipamento. </p>
 
+### **Mensagens trocadas com o usuário**
 
+- Fim do processo de impressão e gasto total para imprimir a peça:
+
+<div align="center">
+
+  <img width="851" height="510" alt="image" src="https://github.com/user-attachments/assets/b0d08d58-ec9f-4ba5-bd67-19ecc6c32618" />
+
+</div>
+
+- Queda energia:
+
+  
+- Retorno da energia:
 
 
 
