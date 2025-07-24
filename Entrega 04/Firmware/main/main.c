@@ -110,7 +110,7 @@ static void print_char_val_type(esp_adc_cal_value_t val_type)
 /**************** Definições para a API callmebot ****************/
 extern const char letsencrypt_root_pem_start[] asm("_binary_letsencrypt_root_pem_start"); // Arquivo PEM para certificado TLS do callme bot
 extern const char letsencrypt_root_pem_end[] asm("_binary_letsencrypt_root_pem_end");
-
+bool callmebot_enable = false;
 /**************** Definições para o WIFI ****************/
 /* FreeRTOS event group to signal when we are connected*/
 static EventGroupHandle_t s_wifi_event_group;
@@ -622,11 +622,13 @@ void send_message_task(void *param)
         if (err == ESP_OK && cod_http == 200)
         {
             ESP_LOGI(TAG, "Mensagem enviada com sucesso para o call me bot");
+            callmebot_enable = true;
             xTaskCreate(bluetooth_shutdown_task, "bt_shutdown", 4096, NULL, 5, NULL);
         }
         else
         {
             ESP_LOGE(TAG, "Erro ao enviar mensagem: %s, código http: %d", esp_err_to_name(err), cod_http);
+            callmebot_enable = false;
             reset_credentials(id_callmebot);
             if (esp_bluedroid_get_status() != ESP_BLUEDROID_STATUS_ENABLED)
                 bluetooth_init();
@@ -692,6 +694,31 @@ void app_main(void)
 
     vTaskDelay(2 * portTICK_PERIOD_MS);
 
+    // Configurando Pino GPIO34 como entrada : Detectar Queda de tensão
+    gpio_config_t config_int = {};
+    config_int.mode = GPIO_MODE_INPUT;
+    config_int.pin_bit_mask = ((1ULL << 34));
+    config_int.pull_down_en = 0;
+    config_int.pull_up_en = 0;
+    config_int.intr_type = GPIO_INTR_DISABLE;
+
+    if (gpio_config(&config_int) == ESP_OK)
+    {
+        printf("Configurado com sucesso.\n");
+    }
+    else
+    {
+        printf("ERRO GPIO config.");
+        exit(EXIT_FAILURE);
+    }
+    bool level = 0;                                                                                        // Variável para verificar estado do GPIO34
+    bool enviado = 0;                                                                                      // Variável para verificar se a mensagem já foi enviada
+    bool queda = 0;                                                                                        // Variável para verificar se já teve queda
+    char *msg_retorno = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AEnergia%20retornou%21";                    // mensagem codificado para url (www.urlencoder.io)
+    char *msg_queda = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%20%0AQueda%20de%20tens%C3%A3o%20detectada%21"; // mensagem codificado para url (www.urlencoder.io)
+    bool enviado_pot = false;
+    char *consumo = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AProcesso%20finalizado."; 
+
     // Inicialização NVS (armazenar dados na memória não volátil)
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
@@ -726,6 +753,27 @@ void app_main(void)
     // Continuously samples
     while (1)
     {
+
+        level = gpio_get_level(GPIO_NUM_34);
+        if (level)
+        {
+            if (!enviado && callmebot_enable)
+            {
+                xTaskCreate(send_message_task, "send_msg_task", 4096, msg_queda, 4, NULL);
+                enviado = true;
+                queda = true;
+            }
+        }
+        else
+        {
+            if (!enviado && queda && callmebot_enable)
+            {
+                xTaskCreate(send_message_task, "send_msg_task", 4096, msg_retorno, 4, NULL);
+                enviado = true;
+                queda = false;
+            }
+        }
+
         adc_reading = 0;
         // Multisampling
         for (int i = 0; i < NO_OF_SAMPLES; i++)
@@ -774,11 +822,22 @@ void app_main(void)
         energia += (uint32_t)potencia * PERIODO_MS / 1000;
         printf("Energia: %lf Wh\n", (double)((double)energia / (3600000)));
 
+        if ((double)((double)potencia / (1000)) < 5)
+        {
+            if (!enviado_pot)
+            {
+                xTaskCreate(send_message_task, "send_msg_task", 4096, consumo, 4, NULL);
+                energia = 0;
+                enviado_pot = true;
+            }
+        }
+        else
+        {
+            enviado_pot = false;
+        }
+
         printf("\n");
 
         vTaskDelay(pdMS_TO_TICKS(PERIODO_MS));
     }
 }
-
-/*char *msg = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%20%0AQueda%20de%20tens%C3%A3o%20detectada%21"; // mensagem codificado para url (www.urlencoder.io)
-        xTaskCreate(send_message_task, "send_msg_task", 4096, msg, 5, NULL);*/
