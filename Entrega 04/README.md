@@ -87,10 +87,20 @@ Para configurar o sistema, 4 informações precisarão ser enviadas:
 </div>
 
 - Queda energia:
+  
+<div align="center">
+ 
+<img width="841" height="509" alt="image" src="https://github.com/user-attachments/assets/aa724df8-e966-4ce4-840c-8204ff261ff9" />
 
+</div>
   
 - Retorno da energia:
 
+<div align="center">
+
+<img width="845" height="504" alt="image" src="https://github.com/user-attachments/assets/b79aca12-9261-4cbe-a9d6-cc783dc5e4fd" />
+
+</div>
 
 
  modificar abaixo 
