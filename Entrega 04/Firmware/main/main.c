@@ -416,8 +416,7 @@ static void event_handler(void *arg, esp_event_base_t event_base,
         s_retry_num = 0;
         xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
         wifi_iniciated = true;
-        //char *msg = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AEquipamento%20configurado%20com%20sucesso%21"; // mensagem codificado para url (www.urlencoder.io)
-        char *msg = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AProcesso%20finalizado.%20Gasto%3A%20R%24%20";
+        char *msg = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AEquipamento%20configurado%20com%20sucesso%21"; // mensagem codificado para url (www.urlencoder.io)
         xTaskCreate(send_message_task, "send_msg_task", 4096, msg, 5, NULL);
     }
 }
