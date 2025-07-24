@@ -1,20 +1,86 @@
-﻿-- Fazer Alterações com base nesse
+## **Interface com o usuário**
+ 
+<p align="justify"> Uma das definições do nosso projeto está em informar o usuário sobre a queda de energia e, no término do processo de impressão, o valor da energia consumida, relacionando com o preço do kWh. Para isso, optou-se por fazer a interface com o usuário por meio de mensagens enviadas pelo whatsapp, através de um BOT da API <a href="https://www.callmebot.com/blog/free-api-whatsapp-messages/">CallMeBot</a>. É necessário que o usuário adicione o telefone do BOT e envie uma mensagem padrão para habilitar o serviço, como mostrado na imagem abaixo. </p>
 
-
-## **Análise do consumo real da impressora em diferentes casos**
-
-- **Adaptador**
-  
-<p align="justify"> Para obter os valores de tensão e corrente, possibilitando a análise do consumo da impressora, foi necessário desenvolver um adaptador, mostrado na imagem abaixo, que alimente a impressora e forneça saídas para que o nosso sistema possa realizar a medição de corrente e tensão. </p>
-
-<p align="center"><b>FIGURA 01 - Adaptador</b></p>
+<p align="center"><b>FIGURA 01 - Obter KEY da API callmebot </b></p>
 
 <div align="center">
-    <img width="400" src="https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2003/Adaptador.jpg"/>
+
+<img width="895" height="418" alt="image" src="https://github.com/user-attachments/assets/d9bc06b9-2e77-4884-a5d0-93e3996565f3" />
+
 </div>
 
-<p align="justify">Esse adptador foi desenvolvido de maneira que a entrada de tensão da fonte passe pelo circuito medidor de corrente, no sentido positivo de medição dele (isso é importante, porque o nosso código apenas detecta variação positiva de tensão sobre o offset de 2.5V, sendo que esse valor representa corrente nula). </p>
+
+<p align="justify"> Para se comunicar com o sistema, o usuário precisará instalar no celular o aplicativo "Serial Bluetooth Terminal", disponível gratuitamente na playstore. Com o bluetooth habilitado e estando no aplicativo, na opção Devices, o usuário deve-se conectar ao POWER_BANK_SYSTEM, como mostrado abaixo. </p>
   
+<p align="center"><b>FIGURA 02 - Conexão com Bluetooth</b></p>
+
+<div align="center">
+  
+<img width="498" height="365" alt="image" src="https://github.com/user-attachments/assets/646ae9c9-166d-432b-9148-1b5b98843ee9" />
+
+</div>
+
+Para configurar o sistema, 4 informações precisarão ser enviadas: 
+
+- **KEY:** Chave obtida do callmebot.
+- **Phone:** O número de telefone. no seguinte formato: 55DDxxxxxxxx
+- **SSID:** SSID da rede Wifi
+- **PASS:** Senha da rede Wifi
+
+<p align="center"><b>FIGURA 03 - Informações por Bluetooth</b></p>
+
+<div align="center">
+  
+<img width="312" height="402" alt="image" src="https://github.com/user-attachments/assets/8aefad48-6a56-4aea-a861-5a136b022a39" />
+
+</div>
+
+ 
+<p align="justify"> Se todas as informações estiverem corretas, o usuário deverá receber no whatsapp a mensagem de configuração bem sucedida, conforme mostrado abaixo. </p>
+
+<p align="center"><b>FIGURA 04 - Mensagem de configuração correta</b></p>
+
+<div align="center">
+  
+<img width="858" height="516" alt="image" src="https://github.com/user-attachments/assets/41a3b873-22d4-4003-920f-d398ce9f82de" />
+
+</div>
+
+<p align="justify"> Caso não consiga se conectar ao WiFi ou o envio da mensagem não for bem sucedido, o sistema pedirá para informar novamente as credenciais do WiFi ou do CallMeBot, respectivamente. Nas imagens abaixo, apresenta-se o teste para cada situação. </p>
+
+- Informou as credenciais do WiFi e do CallMeBot, mas as credenciais do WiFi estão incorretas.
+
+<div align="center">
+  
+<img width="532" height="199" alt="image" src="https://github.com/user-attachments/assets/ad216905-8c43-4ff3-b350-242d338e4f2d" />
+
+</div>
+
+  
+- Forneceu as credenciais corretas do WiFi, mas a do CallMeBot estão incorretas.
+
+<div align="center">
+
+  <img width="532" height="199" alt="image" src="https://github.com/user-attachments/assets/8048910d-d5f1-46cb-b333-aebc66513e22" />
+
+</div>
+
+- Forneceu as credenciais corretas do WiFi e do CallMeBot.
+
+<div align="center">
+  
+<img width="532" height="199" alt="image" src="https://github.com/user-attachments/assets/95007322-801f-4422-ae08-4158939027a0" />
+
+</div>
+
+<p align="justify"> Após o sucesso na conexão com o WiFi e com o CallmeBot, o Bluetooth é desligado (por isso aparece "Connection lost") e as credenciais são salvas no NVS (Non-Volatile Storage), portanto, o usuário não precisará refazer esse processo sempre que religar o equipamento. </p>
+
+
+
+
+
+ modificar abaixo 
 ---
 
 <p align="justify">A seguir, apresenta-se a média da corrente, tensão e potência, obtidas a partir de 16 amostras com período de 1 ms, e energia consumida pela impressora, com base no valor da potência média e no tempo de 16ms (tempo necessário para obter as 16 amostras), em diferentes modos de operação da impressora. </p>
