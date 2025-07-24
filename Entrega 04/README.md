@@ -305,49 +305,6 @@ Energia: 84.916874 Wh
 
 ---
 
-## **Teste de Carga do Banco de Baterias na Impressora 3D**
-
-<p align="justify">Para validar o desempenho do banco de baterias, foram utilizados suportes impressos em 3D, que permitiram uma conexão rápida e segura das células ao Sistema de Gerenciamento de Bateria (BMS). </p>
-
-<p align="center"><b>FIGURA 02 - Desenho 3D do suporte para conexão das baterias</b></p>
-
-<div align="center">
-  
-![image](https://github.com/user-attachments/assets/1b2a5c9b-4e5d-4d52-980c-ada7ee057f2a)
-
-</div>
-
-### **Teste Inicial: Configuração 6S1P**
-
-<p align="justify"> No primeiro teste, foi montada uma configuração <b>6S1P</b> (6 células em série). O banco de baterias conseguiu alimentar com sucesso tarefas de menor demanda, como o aquecimento do bico e a movimentação dos eixos.</p>
-
-<p align="justify">Porém, ao tentar aquecer a mesa da impressora, a demanda de corrente inicial foi excessivamente alta, confirmando o que a análise de consumo já havia apontado como o <b>momento crítico do sistema</b>. Esse pico de corrente provocou uma queda de tensão abrupta na célula com maior resistência interna, fazendo com que o BMS, por segurança, desligasse todo o sistema após cerca de 15 segundos. </p>
-
-<p align="center"><b>FIGURA 03 - montagem das baterias na configuração 6S1P</b></p>
-
-<div align="center">
-  
-![image](https://github.com/user-attachments/assets/f3f601fc-c695-43ed-b47c-0ca1b96e327a)
-
-</div>
-
-
-### **Teste Final: Configuração 6S2P**
-
-<p align="justify"> Para solucionar a limitação de corrente, a configuração foi alterada para <b>6S2P</b> (6 células em série, 2 em paralelo), dobrando a capacidade de descarga do conjunto. Com essa nova montagem, a impressora operou em todas as suas funções sem problemas. </p>
-
-<p align="justify">O teste prático definitivo foi realizado iniciando uma impressão e, em seguida, desconectando a fonte da rede elétrica. A impressora manteve-se operante, com a energia das baterias, por <b>mais de 15 minutos</b>. Um resultado excelente que superou em muito a expectativa inicial do projeto, que era de resistir por, pelo menos, 1 minuto. Isso valida a eficácia do sistema como uma fonte de energia ininterrupta (No-break). </p>
-
-<p align="center"><b>FIGURA 04 - Teste das baterias, na configuração 6S2P, alimentando a impressora </b></p>
-
-<div align="center">
-
-![image](https://github.com/user-attachments/assets/5412cf63-7a3b-4fc4-ac48-573c77f9e2e6)
-
-</div>
-
-:clapper: Vídeo de teste: https://photos.app.goo.gl/ZgK85YDPrmBBUdR36
-
 ## **Projeto do Compartimento Final das Baterias**
 
 <p align="justify">Após o sucesso dos testes, foi projetado o compartimento definitivo que irá alocar todas as baterias de forma segura e organizada. O design consiste em um suporte modular: serão utilizados dois slots 3S2P idênticos que, quando associados em série, formarão o banco de baterias 6S2P final para a montagem dentro da case.</p>
@@ -363,11 +320,11 @@ Energia: 84.916874 Wh
 
 ---
 
-## **Projeto 3D da Case do Equipamento**
+## **Projeto 3D da Case do Equipamento (Ajuste de tamanho)**
 
 <p align="justify">Para abrigar o <b>conjunto de baterias</b> e o <b>circuito de medição</b>, foi desenvolvido um projeto de case customizada. O processo iniciou com a tomada de medidas da parte traseira da impressora 3D, o que permitiu elaborar um design que se acopla de forma precisa e funcional ao equipamento.</p>
 
-<p align="center"><b>FIGURA 06 - Suporte onde a impressora será apoiada</b></p>
+<p align="center"><b>FIGURA 06 - Representasão da parte traseira da impressora</b></p>
 
 <div align="center">
 
@@ -376,13 +333,13 @@ Energia: 84.916874 Wh
 </div>
 
 
-<p align="justify">Considerando as dimensões do banco de baterias e das placas eletrônicas, foi possível elaborar um projeto de case robusto. O design visa não apenas proteger os componentes, mas também garantir durabilidade e praticidade, com uma estrutura firme e entradas e saídas de cabos bem definidas.</p>
+<p align="justify">Considerando as dimensões do banco de baterias e das placas eletrônicas, foi possível elaborar um projeto de case. O design foi ajustado ao tamanho da placa, para uma melhor organização interna do equipamento.</p>
 
-<p align="center"><b>FIGURA 07 - Posicionamento da case no suporte</b></p>
+<p align="center"><b>FIGURA 07 - Posicionamento da case no impressora</b></p>
 
 <div align="center">
   
-![image](https://github.com/user-attachments/assets/ca3ad015-c0cc-469f-a98d-0f863b47c642)
+<img width="637" height="390" alt="image" src="https://github.com/user-attachments/assets/e51561e8-694f-45ac-878f-3275a5442b94" />
 
 </div>
 
@@ -393,7 +350,8 @@ Energia: 84.916874 Wh
 
 <div align="center">
   
-![image](https://github.com/user-attachments/assets/9d87047d-0cac-4c81-90de-278f5fdd2f7b)
+<img width="665" height="397" alt="image" src="https://github.com/user-attachments/assets/a2b038e0-cde7-4b62-b471-7d0feac01259" />
+
 
 </div>
 
