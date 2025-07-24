@@ -52,7 +52,6 @@
 #define OFF_SET_MEDIDOR_RAW 2173     // offset em relação a zero corrente
 #define CONVERSAO_DIVISOR 42013
 
-#define ADC2_CHANNEL ADC2_CHANNEL_7
 #define TESAO_MEDIDA_ADC2 483 // 527 mV no divisor de tensao
 #define TENSAO_LIDA_ESP 635
 #define TENSAO_FONTE 24
@@ -62,8 +61,9 @@
 #define PERIODO_MS 1000
 
 static esp_adc_cal_characteristics_t *adc_chars;
-static const adc_channel_t channel = ADC_CHANNEL_4; // GPIO32 ADC1
-static const adc_atten_t atten = ADC_ATTEN_DB_0;    // Definição da atenuação de entrada do ADC
+static const adc_channel_t channel_voltage = ADC1_CHANNEL_3; // GPIO 39
+static const adc_channel_t channel_current = ADC1_CHANNEL_7; // GPIO 35
+static const adc_atten_t atten = ADC_ATTEN_DB_0;             // Definição da atenuação de entrada do ADC
 static const adc_unit_t unit = ADC_UNIT_1;
 
 #if CONFIG_IDF_TARGET_ESP32
@@ -111,6 +111,9 @@ static void print_char_val_type(esp_adc_cal_value_t val_type)
 extern const char letsencrypt_root_pem_start[] asm("_binary_letsencrypt_root_pem_start"); // Arquivo PEM para certificado TLS do callme bot
 extern const char letsencrypt_root_pem_end[] asm("_binary_letsencrypt_root_pem_end");
 bool callmebot_enable = false;
+bool envia_consumo = false;
+
+float valor_consumo = 0;
 /**************** Definições para o WIFI ****************/
 /* FreeRTOS event group to signal when we are connected*/
 static EventGroupHandle_t s_wifi_event_group;
@@ -413,7 +416,8 @@ static void event_handler(void *arg, esp_event_base_t event_base,
         s_retry_num = 0;
         xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
         wifi_iniciated = true;
-        char *msg = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AEquipamento%20configurado%20com%20sucesso%21"; // mensagem codificado para url (www.urlencoder.io)
+        //char *msg = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AEquipamento%20configurado%20com%20sucesso%21"; // mensagem codificado para url (www.urlencoder.io)
+        char *msg = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AProcesso%20finalizado.%20Gasto%3A%20R%24%20";
         xTaskCreate(send_message_task, "send_msg_task", 4096, msg, 5, NULL);
     }
 }
@@ -604,8 +608,17 @@ void send_message_task(void *param)
     {
         char TAG[] = "Mensagem pelo Whatsapp";
         char url[512];
-        snprintf(url, sizeof(url), "https://api.callmebot.com/whatsapp.php?phone=%s&text=%s&apikey=%s",
-                 callmebot.phone, (const char *)param, callmebot.key);
+
+        if (envia_consumo)
+        {
+            snprintf(url, sizeof(url), "https://api.callmebot.com/whatsapp.php?phone=%s&text=%s%.2f&apikey=%s",
+                     callmebot.phone, (const char *)param, valor_consumo, callmebot.key);
+        }
+        else
+        {
+            snprintf(url, sizeof(url), "https://api.callmebot.com/whatsapp.php?phone=%s&text=%s&apikey=%s",
+                     callmebot.phone, (const char *)param, callmebot.key);
+        }
 
         printf("URL = %s", url);
 
@@ -656,7 +669,8 @@ void app_main(void)
 
     // Configure ADC
     adc1_config_width(ADC_WIDTH_BIT_12);
-    adc1_config_channel_atten(channel, atten);
+    adc1_config_channel_atten(channel_current, atten);
+    adc1_config_channel_atten(channel_voltage, atten);
 
     // Characterize ADC
     adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
@@ -667,10 +681,7 @@ void app_main(void)
     uint32_t voltage = 0;
     uint32_t adc_reading = 0;
 
-    // ADC 2 init ------------------------------
-    int read_raw = 0;
     uint32_t read_raw_2 = 0;
-    esp_err_t r;
     uint32_t tensao_saida = 0;
     uint32_t conversao_tensao_tensao_mv = 28409; // nova (1000000*TENSAO_FONTE)/TENSAO_LIDA_ESP;
     uint32_t corrente_saida = 0;
@@ -681,43 +692,49 @@ void app_main(void)
     // energia:
     uint64_t energia = 0;
 
-    gpio_num_t adc_gpio_num;
-
-    r = adc2_pad_get_io_num(ADC2_CHANNEL, &adc_gpio_num);
-    assert(r == ESP_OK);
-
-    printf("ADC2 channel %d @ GPIO %d\n", ADC2_CHANNEL, adc_gpio_num);
-
-    // be sure to do the init before using adc2.
-    printf("adc2_init...\n");
-    adc2_config_channel_atten(ADC2_CHANNEL, ADC_ATTEN_DB_0); // mudado
-
-    vTaskDelay(2 * portTICK_PERIOD_MS);
-
-    // Configurando Pino GPIO34 como entrada : Detectar Queda de tensão
+    // Configurando Pino GPIO21 como entrada : Detectar Queda de tensão
     gpio_config_t config_int = {};
     config_int.mode = GPIO_MODE_INPUT;
-    config_int.pin_bit_mask = ((1ULL << 34));
+    config_int.pin_bit_mask = ((1ULL << 21));
     config_int.pull_down_en = 0;
     config_int.pull_up_en = 0;
     config_int.intr_type = GPIO_INTR_DISABLE;
 
     if (gpio_config(&config_int) == ESP_OK)
     {
-        printf("Configurado com sucesso.\n");
+        printf("GPIO21 configurado com sucesso.\n");
     }
     else
     {
-        printf("ERRO GPIO config.");
+        printf("ERRO GPIO21 config.");
         exit(EXIT_FAILURE);
     }
+
+    // Configurando Pino GPIO16 como saída: Controle do Relé
+    config_int.mode = GPIO_MODE_OUTPUT;
+    config_int.pin_bit_mask = ((1ULL << 16));
+    config_int.pull_down_en = 0;
+    config_int.pull_up_en = 0;
+    config_int.intr_type = GPIO_INTR_DISABLE;
+
+    if (gpio_config(&config_int) == ESP_OK)
+    {
+        printf("GPIO16 configurado com sucesso.\n");
+    }
+    else
+    {
+        printf("ERRO GPIO16 config.");
+        exit(EXIT_FAILURE);
+    }
+
+    // Variáveis para o controle de queda de energia e envio de mensagem de alerta
     bool level = 0;                                                                                        // Variável para verificar estado do GPIO34
     bool enviado = 0;                                                                                      // Variável para verificar se a mensagem já foi enviada
     bool queda = 0;                                                                                        // Variável para verificar se já teve queda
     char *msg_retorno = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AEnergia%20retornou%21";                    // mensagem codificado para url (www.urlencoder.io)
     char *msg_queda = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%20%0AQueda%20de%20tens%C3%A3o%20detectada%21"; // mensagem codificado para url (www.urlencoder.io)
     bool enviado_pot = false;
-    char *consumo = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AProcesso%20finalizado."; 
+    char *consumo = "%2APOWER_BANK_SYSTEM%20informa%3A%2A%0AProcesso%20finalizado.%20Gasto%3A%20R%24%20";
 
     // Inicialização NVS (armazenar dados na memória não volátil)
     esp_err_t ret = nvs_flash_init();
@@ -754,7 +771,7 @@ void app_main(void)
     while (1)
     {
 
-        level = gpio_get_level(GPIO_NUM_34);
+        level = gpio_get_level(GPIO_NUM_21);
         if (level)
         {
             if (!enviado && callmebot_enable)
@@ -778,7 +795,7 @@ void app_main(void)
         // Multisampling
         for (int i = 0; i < NO_OF_SAMPLES; i++)
         {
-            adc_reading += adc1_get_raw((adc1_channel_t)channel);
+            adc_reading += adc1_get_raw((adc1_channel_t)channel_current);
         }
         adc_reading /= NO_OF_SAMPLES;
 #if CONFIG_IDF_TARGET_ESP32
@@ -797,23 +814,15 @@ void app_main(void)
         read_raw_2 = 0;
         for (int i = 0; i < NO_OF_SAMPLES; i++)
         {
-            r = adc2_get_raw(ADC2_CHANNEL, ADC_WIDTH_BIT_12, &read_raw);
-            read_raw_2 += (uint32_t)read_raw;
+            read_raw_2 += adc1_get_raw((adc1_channel_t)channel_voltage);
+            ;
         }
         read_raw_2 /= NO_OF_SAMPLES;
 
         voltage = esp_adc_cal_raw_to_voltage(read_raw_2, adc_chars);
-        // printf("Raw: %d\n", read_raw_2);
-        if (r == ESP_OK)
-        {
-            // printf("Tensão ADC_2: %u mV\n", voltage-(uint32_t)OFF_SET_TENSAO );
-            tensao_saida = (voltage - (uint32_t)OFF_SET_TENSAO) * conversao_tensao_tensao_mv;
-            printf("tensao de entrada: %lf V\n", (double)tensao_saida / 1000000); //<-aqui
-        }
-        else
-        {
-            printf("%s\n", esp_err_to_name(r));
-        }
+
+        tensao_saida = (voltage - (uint32_t)OFF_SET_TENSAO) * conversao_tensao_tensao_mv;
+        printf("tensao de entrada: %lf V\n", (double)tensao_saida / 1000000);
 
         potencia = (uint64_t)tensao_saida * (uint64_t)corrente_saida;
         potencia = potencia / 1000000000;
@@ -822,13 +831,17 @@ void app_main(void)
         energia += (uint32_t)potencia * PERIODO_MS / 1000;
         printf("Energia: %lf Wh\n", (double)((double)energia / (3600000)));
 
-        if ((double)((double)potencia / (1000)) < 5)
+        if ((double)((double)potencia / (1000)) < 5) // Impressora entrou no modo Stand-by
         {
             if (!enviado_pot)
             {
+                envia_consumo = true;
+                valor_consumo = (double)((double)energia / (3600000000)) * 0.573;
                 xTaskCreate(send_message_task, "send_msg_task", 4096, consumo, 4, NULL);
+                gpio_set_level(GPIO_NUM_21, 1);
                 energia = 0;
                 enviado_pot = true;
+                envia_consumo = false;
             }
         }
         else
