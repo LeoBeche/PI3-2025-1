@@ -355,3 +355,18 @@ Energia: 84.916874 Wh
 
 </div>
 
+---
+
+### **Teste Final: Configuração 6S2P**
+
+<p align="justify"> Foi realizado o teste final utilizando uma impressora Ender 3 Pro, imprimindo uma pequena peça , afim de somente realizar o teste.
+
+<p align="justify"> O equipamento teve uma ótima performa, tendo atingidos dos os senários possíveis durante uma impressão, sendo eles: queda de energia, retorno da energia e consumo dos componentes resistivos e indutivos.
+ 
+<div align="center">
+
+
+
+</div>
+
+:clapper: Vídeo de teste final: 
