@@ -745,8 +745,6 @@ void app_main(void)
     ESP_ERROR_CHECK(ret);
 
     prepare_wifi();
-    reset_credentials(id_callmebot);
-    reset_credentials(id_credencial);
 
     if (load_credentials(id_credencial, &credencial))
     {
