@@ -838,7 +838,7 @@ void app_main(void)
                 envia_consumo = true;
                 valor_consumo = (double)((double)energia / (3600000000)) * 0.573;
                 xTaskCreate(send_message_task, "send_msg_task", 4096, consumo, 4, NULL);
-                gpio_set_level(GPIO_NUM_21, 1);
+                gpio_set_level(GPIO_NUM_16, 1);
                 energia = 0;
                 enviado_pot = true;
                 envia_consumo = false;
