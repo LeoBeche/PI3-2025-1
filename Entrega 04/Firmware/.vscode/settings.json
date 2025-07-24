@@ -1,0 +1,17 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.espIdfPathWin": "C:\\Users\\greic\\esp\\esp-idf",
+  "idf.toolsPathWin": "C:\\Users\\greic\\.espressif",
+  "idf.pythonInstallPath": "C:\\Users\\greic\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
+  "idf.portWin": "COM4",
+  "idf.flashType": "UART",
+  "files.associations": {
+    "**/project.sigasi": "jsonc",
+    "**/.sigasi/**/compilation.log": "shellscript",
+    "**/.sigasi/**/compilation.plan": "json",
+    "stdio.h": "c",
+    "compare": "c",
+    "limits": "c",
+    "new": "c"
+  }
+}
