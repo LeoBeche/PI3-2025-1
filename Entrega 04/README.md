@@ -1,4 +1,4 @@
-## **Interface com o usuário**
+﻿## **Interface com o usuário**
  
 <p align="justify"> Uma das definições do nosso projeto está em informar o usuário sobre a queda de energia e, no término do processo de impressão, o valor da energia consumida, relacionando com o preço do kWh. Para isso, optou-se por fazer a interface com o usuário por meio de mensagens enviadas pelo whatsapp, através de um BOT da API <a href="https://www.callmebot.com/blog/free-api-whatsapp-messages/">CallMeBot</a>. É necessário que o usuário adicione o telefone do BOT e envie uma mensagem padrão para habilitar o serviço, como mostrado na imagem abaixo. </p>
 
@@ -103,270 +103,100 @@ Para configurar o sistema, 4 informações precisarão ser enviadas:
 </div>
 
 
- modificar abaixo 
 ---
 
-<p align="justify">A seguir, apresenta-se a média da corrente, tensão e potência, obtidas a partir de 16 amostras com período de 1 ms, e energia consumida pela impressora, com base no valor da potência média e no tempo de 16ms (tempo necessário para obter as 16 amostras), em diferentes modos de operação da impressora. </p>
-
-### **Modo de operação 1: Mesa e Bico Esquentando**
-
-```
-Raw: 3161    Voltage: 843mV
-Corrente: 10.041107 A
-Tensão de entrada: 23.749924 V
-Pontência instantânea: 238.475 W
-Energia: 40613.877 J
-
-Raw: 2199    Voltage: 609mV
-Corrente: 0.210065 A
-Tensão de entrada: 23.948787 V
-Pontência instantânea: 5.030 W
-Energia: 40618.907 J
-
-Raw: 2199    Voltage: 609mV
-Corrente: 0.210065 A
-Tensão de entrada: 23.948787 V
-Pontência instantânea: 5.030 W
-Energia: 40623.937 J
-
-Raw: 2198    Voltage: 609mV
-Corrente: 0.210065 A
-Tensão de entrada: 23.977196 V
-Pontência instantânea: 5.036 W
-Energia: 40628.973 J
-``` 
-<p align="justify">Com base no resultado da medição, para essa situação, percebe-se que o aquecimento da mesa e do bico representa um momento crítico de consumo, pois a corrente no sistema atinge, aproximadamente, 10 A, como pode-se observar na primeira medida apresentada (RAW 3161), realizada momentos antes do bico e da mesa terem sido completamente esquentados. Já nas outras medições, nota-se que o valor da corrente caiu drasticamente, sendo um consumo apenas para manter o bico e a mesa aquecidos. </p>
-
-:clapper: Vídeo da medição do consumo da mesa e bico esquentando: https://youtube.com/shorts/ABSbG42qyyc
+<p align="justify">Realizamos um ensaio com o analizador de energia disponibilizado pelo professor e comparamos medindo na mesma condição com o nosso sistema. O resultado das medições com o analizador: </p>
 
 
----
+<p align="center"><b>Impressão: Cubo de Calibração - Condição de medição: mesa fria</b></p>
 
-### **Modo de operação 2: Mapeamento de superfície**
-
-```
-Raw: 2254    Voltage: 622mV
-Corrente: 0.756234 A
-Tensão de entrada: 23.948787 V
-Pontência instantânea: 18.110 W
-Energia: 49133.514 J
-
-Raw: 2252    Voltage: 622mV
-Corrente: 0.756234 A
-Tensão de entrada: 23.948787 V
-Pontência instantânea: 18.110 W
-Energia: 49151.624 J
-
-Raw: 2409    Voltage: 660mV
-Corrente: 2.352728 A
-Tensão de entrada: 23.948787 V
-Pontência instantânea: 56.344 W
-Energia: 49207.968 J
-
-Raw: 2420    Voltage: 663mV
-Corrente: 2.478767 uA
-Tensão de entrada: 23.863560 V
-Pontência instantânea: 59.152 W
-Energia: 49267.120 J
-```
-<p align="justify">Pode-se notar que, nesse modo de operação, o consumo da impressora é baixo, pois só atua o seu sistema de comando e os motores. A corrente média é, em torno de, 700 mA a 2 A, o que está dentro do esperado, pois cada motor da impressora tem um consumo nominal de 800 mA e o sistema se move, para e volta a se mover, o que justifica essa característica de consumo.</p>
-
-:clapper: Vídeo da medição do consumo no nivelamento: https://youtube.com/shorts/ZBV85Ab9q4k
-
----
-
-### **Modo de operação 3: Impressão**
-
-```
-Corrente: 10.923380 A
-Tensão de entrada: 23.778333 V
-Potência instantânea: 259.739000 W
-Energia: 73.822919 Wh
-
-Corrente: 1.134351 A
-Tensão de entrada: 23.920378 V
-Potência instantânea: 27.134000 W
-Energia: 73.830456 Wh
-
-Corrente: 1.134351 A
-Tensão de entrada: 24.034014 V
-Potência instantânea: 27.263000 W
-Energia: 73.838029 Wh
-
-Corrente: 2.730845 A
-Tensão de entrada: 23.948787 V
-Potência instantânea: 65.400000 W
-Energia: 73.856196 Wh
-
-Corrente: 2.604806 A
-Tensão de entrada: 24.005605 V
-Potência instantânea: 62.529000 W
-Energia: 73.873565 Wh
-
-Corrente: 6.427989 A
-Tensao de entrada: 24.005605 V
-Potência instantânea: 154.307000 W
-Energia: 73.916428 Wh
-
-Corrente: 10.965393 A
-Tensão de entrada: 23.891969 V
-Pontência instantânea: 261.984000 W
-Energia: 73.989201 Wh
-
-Corrente: 1.050325 A
-Tensão de entrada: 23.806742 V
-Potência instantânea: 25.004000 W
-Energia: 73.996147 Wh
-
-Corrente: 1.134351 A
-Fensão de entrada: 23.948787 V
-Potência instantânea: 27.166000 W
-Energia: 74.003693 Wh
-
-Corrente: 1.092338 A
-tensão de entrada: 24.005605 V
-Potência instantânea: 26.222000 W
-Energia: 74.010977 Wh
-
-Corrente: 2.646819 A
-Tensão de entrada: 23.891969 V
-Pontência instantânea: 63.237888 W
-Energia: 74.028543 Wh
-```
-
-Na impressão, o consumo varia bastante, o que é esperado, por causa da dinâmica do sistema.
-
-:clapper: Vídeo da medição do consumo na impressão: https://youtube.com/shorts/0EHOhPpAPSg?feature=share
-
----
-
-### **Modo de operação 4: Stand-by**
-
-```
-Corrente: 0.546169 A
-Tensão de entrada: 23.977196 V
-Potência instantânea: 13.095000 W
-Energia: 84.886653 Wh
-
-Corrente: 0.882273 A
-Tensao de entrada: 24.034014 V
-Potência instantânea: 21.204000 W
-Energia: 84.892543 Wh
-
-Corrente: 0.882273 A
-Tensão de entrada: 24.090832 V
-Potência instantânea: 21.254000 W
-Energia: 84.898447 Wh
-
-Corrente: 0.882273 A
-Tensao de entrada: 24.034014 V
-Potência instantânea: 21.204000 W
-Energia: 84.904337 Wh
-
-Corrente: 0.882273 A
-Tensão de entrada: 23.778333 V
-Potência instantânea: 20.978080 W
-Energia: 84.918164 Wh
-
-Corrente: 0.168052 A
-Tensão de entrada: 23.920378 V
-Potência instantânea: 4.019000 W
-Energia: 84.911281 Wh
-
-Corrente: 0.168052 A
-Tensão de entrada: 23.891969 V
-Potência instantânea: 4.815000 W
-Energia: 84.912396 Wh
-
-Corrente: 0.168052 A
-Tensão de entrada: 23.977196 V
-Potência instantânea: 4.829000 W
-Energia: 84.913515 Wh
-
-Corrente: 0.210065 A
-Tensão de entrada: 24.090832 V
-Potência instantânea: 5.060000 W
-Energia: 84.914921 Wh
-
-Corrente: 0.126039 A
-Tensao de entrada: 23.835151 V
-Potência instantânea: 3.004000 W
-Energia: 84.915755 Wh
-
-Corrente: 0.168052 A
-Tensao de entrada: 23.977196 V
-Potência instantânea: 4.029000 W
-Energia: 84.916874 Wh
-```
-
-<p align="justify">O estado de inatividade da impressora é bem caracterizado. Desse modo, é possível configurar o nosso sistema para perceber esse padrão de consumo e realizar o desligamento da impressora ao terminar o processo de impressão, sendo esta uma funcionalidade que queremos entregar com nosso projeto. </p>
-
-:clapper: Vídeo da medição do consumo em Stand-by: https://youtube.com/shorts/RgSNFNDTvaA?feature=share
-
----
-
-## **Projeto do Compartimento Final das Baterias**
-
-<p align="justify">Após o sucesso dos testes, foi projetado o compartimento definitivo que irá alocar todas as baterias de forma segura e organizada. O design consiste em um suporte modular: serão utilizados dois slots 3S2P idênticos que, quando associados em série, formarão o banco de baterias 6S2P final para a montagem dentro da case.</p>
-
-<p align="center"><b>FIGURA 05 - Desenho 3D do slot de baterias</b></p>
-
+-- imagem ainda a ser alterada
 <div align="center">
 
 ![image](https://github.com/user-attachments/assets/f3310ff4-c8e1-4a45-b330-47a2805cf3f0)
 
 </div>
 
+<p align="center"><b>Impressão: Cubo de Calibração - Condição de medição: mesa fria</b></p>
+
+'''
+Corrente: 2.352728 A
+Corrente: 660 A
+tensao de entrada: 23.977196 V
+Pontência instantânea: 56.411000 W
+Energia: 52.138546 Wh
+
+Corrente: 0.798247 A
+Corrente: 623 A
+tensao de entrada: 23.920378 V
+Pontência instantânea: 19.094000 W
+Energia: 52.143850 Wh
+
+Corrente: 0.840260 A
+Corrente: 624 A
+tensao de entrada: 23.977196 V
+Pontência instantânea: 20.147000 W
+Energia: 52.149446 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 23.977196 V
+Pontência instantânea: 2.014000 W
+Energia: 52.150006 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 23.948787 V
+Pontência instantânea: 2.012000 W
+Energia: 52.150564 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 23.948787 V
+Pontência instantânea: 2.012000 W
+Energia: 52.151123 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 23.948787 V
+Pontência instantânea: 2.012000 W
+Energia: 52.151682 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 23.977196 V
+Pontência instantânea: 2.014000 W
+Energia: 52.152242 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 23.948787 V
+Pontência instantânea: 2.012000 W
+Energia: 52.152801 Wh
+
+Corrente: 0.126039 A
+Corrente: 607 A
+tensao de entrada: 23.977196 V
+Pontência instantânea: 3.022000 W
+Energia: 52.153640 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 24.034014 V
+Pontência instantânea: 2.019000 W
+Energia: 52.154201 Wh
+
+Corrente: 0.084026 A
+Corrente: 606 A
+tensao de entrada: 23.948787 V
+Pontência instantânea: 2.012000 W
+Energia: 52.154760 Wh
+
+'''
+
+<p align="justify">Medições coom o nosso sistema: </p>
+
 
 ---
 
-## **Projeto 3D da Case do Equipamento (Ajuste de tamanho)**
-
-<p align="justify">Para abrigar o <b>conjunto de baterias</b> e o <b>circuito de medição</b>, foi desenvolvido um projeto de case customizada. O processo iniciou com a tomada de medidas da parte traseira da impressora 3D, o que permitiu elaborar um design que se acopla de forma precisa e funcional ao equipamento.</p>
-
-<p align="center"><b>FIGURA 06 - Representasão da parte traseira da impressora</b></p>
-
-<div align="center">
-
-![image](https://github.com/user-attachments/assets/afd3850e-05d8-490f-a7b4-fd1cd03f79de)
-
-</div>
-
-
-<p align="justify">Considerando as dimensões do banco de baterias e das placas eletrônicas, foi possível elaborar um projeto de case. O design foi ajustado ao tamanho da placa, para uma melhor organização interna do equipamento.</p>
-
-<p align="center"><b>FIGURA 07 - Posicionamento da case no impressora</b></p>
-
-<div align="center">
-  
-<img width="637" height="390" alt="image" src="https://github.com/user-attachments/assets/e51561e8-694f-45ac-878f-3275a5442b94" />
-
-</div>
-
-
-<p align="justify">A case consiste em uma caixa com tampa parafusada para fácil acesso e manutenção. Possui aberturas para a passagem dos cabos que conectam o sistema à fonte de alimentação e à impressora. Além disso, conta com dois orifícios projetados para a instalação de interruptores de energia, garantindo o controle manual do sistema. O espaço interno foi otimizado para acomodar de forma segura e organizada o banco de baterias junto ao circuito de medição.</p>
-
-<p align="center"><b>FIGURA 08 - Detalhamento da case</b></p>
-
-<div align="center">
-  
-<img width="665" height="397" alt="image" src="https://github.com/user-attachments/assets/a2b038e0-cde7-4b62-b471-7d0feac01259" />
-
-
-</div>
-
----
-
-### **Teste Final: Configuração 6S2P**
-
-<p align="justify"> Foi realizado o teste final utilizando uma impressora Ender 3 Pro, imprimindo uma pequena peça , afim de somente realizar o teste.
-
-<p align="justify"> O equipamento teve uma ótima performa, tendo atingidos dos os senários possíveis durante uma impressão, sendo eles: queda de energia, retorno da energia e consumo dos componentes resistivos e indutivos.
- 
-<div align="center">
-
-
-
-</div>
-
-:clapper: Vídeo de teste final: 
+<p align="justify">O vídeo de operação do sistema com queda de tesão se encontra em: https://photos.app.goo.gl/2cjk2MKaVvkJwBAs5 </p>
