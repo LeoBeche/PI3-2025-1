@@ -108,54 +108,17 @@ Para configurar o sistema, 4 informações precisarão ser enviadas:
 <p align="justify">Realizamos um ensaio com o analizador de energia disponibilizado pelo professor e comparamos medindo na mesma condição com o nosso sistema. O resultado das medições com o analizador: </p>
 
 
-<p align="center"><b>Impressão: Cubo de Calibração - Condição de medição: mesa fria</b></p>
+<p align="center"><b>Impressão: Cubo de Calibração - Condição de medição: mesa fria - analisador de energia</b></p>
 
--- imagem ainda a ser alterada
 <div align="center">
 
-![image](https://github.com/user-attachments/assets/f3310ff4-c8e1-4a45-b330-47a2805cf3f0)
+![image](https://github.com/LeoBeche/PI3-2025-1/blob/main/Entrega%2004/medi%C3%A7%C3%B5es-analisador-de-energia.png)
 
 </div>
 
-<p align="center"><b>Impressão: Cubo de Calibração - Condição de medição: mesa fria</b></p>
+<p align="center"><b>Impressão: Cubo de Calibração - Condição de medição: mesa fria - nosso sistema</b></p>
 
-'''
-Corrente: 2.352728 A
-Corrente: 660 A
-tensao de entrada: 23.977196 V
-Pontência instantânea: 56.411000 W
-Energia: 52.138546 Wh
-
-Corrente: 0.798247 A
-Corrente: 623 A
-tensao de entrada: 23.920378 V
-Pontência instantânea: 19.094000 W
-Energia: 52.143850 Wh
-
-Corrente: 0.840260 A
-Corrente: 624 A
-tensao de entrada: 23.977196 V
-Pontência instantânea: 20.147000 W
-Energia: 52.149446 Wh
-
-Corrente: 0.084026 A
-Corrente: 606 A
-tensao de entrada: 23.977196 V
-Pontência instantânea: 2.014000 W
-Energia: 52.150006 Wh
-
-Corrente: 0.084026 A
-Corrente: 606 A
-tensao de entrada: 23.948787 V
-Pontência instantânea: 2.012000 W
-Energia: 52.150564 Wh
-
-Corrente: 0.084026 A
-Corrente: 606 A
-tensao de entrada: 23.948787 V
-Pontência instantânea: 2.012000 W
-Energia: 52.151123 Wh
-
+```
 Corrente: 0.084026 A
 Corrente: 606 A
 tensao de entrada: 23.948787 V
@@ -191,10 +154,13 @@ Corrente: 606 A
 tensao de entrada: 23.948787 V
 Pontência instantânea: 2.012000 W
 Energia: 52.154760 Wh
+```
 
-'''
+<p align="justify">A medida do analisador de energia é feita a partir da fase que alimenta a fonte da impressora 3D, assim ela lê potência ativa, reativa e amparente. Para a nossa comparação apenas usamos a potência ativa.</p>
 
-<p align="justify">Medições coom o nosso sistema: </p>
+
+<p align="justify">Ao comparar os resultados, mesmo considerando um rendimento da fonte da impressora deaproximadamente 90%, as medidas possuem um erro, com base no analisador de energia, de 10%</p>
+
 
 
 ---
